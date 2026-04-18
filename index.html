@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BGP Hijack — Orange France · Rapport Technique</title>
+  <meta name="description" content="Rapport technique indépendant sur un détournement BGP visant Orange France. Investigation publiée après revue technique incluant des échanges avec Doug Madory (Kentik)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:         #090e1a;
+      --panel:      #111828;
+      --panel-2:    #161f32;
+      --border:     rgba(255,255,255,.07);
+      --text:       #dce8ff;
+      --muted:      #8394b8;
+      --faint:      #4a5578;
+      --accent:     #4fa8e8;
+      --green:      #52d98b;
+      --amber:      #f0c060;
+      --red:        #f07080;
+      --r:          14px;
+      --r-sm:       10px;
+      --max:        1080px;
+      --mono: 'JetBrains Mono', ui-monospace, monospace;
+      --sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    /* ── HEADER ── */
+    .header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(ellipse 80% 50% at 90% -10%, rgba(79,168,232,.12), transparent),
+        radial-gradient(ellipse 60% 40% at -10% 80%, rgba(82,217,139,.08), transparent);
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: 12px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase;
+      color: var(--green); background: rgba(82,217,139,.1);
+      border: 1px solid rgba(82,217,139,.2); border-radius: 999px;
+      padding: 5px 12px; margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(28px, 4.5vw, 52px); font-weight: 700;
+      letter-spacing: -.025em; line-height: 1.07;
+      margin-bottom: 16px;
+    }
+    h1 span { color: var(--accent); }
+    .lead {
+      color: var(--muted); font-size: 17px; max-width: 800px;
+      line-height: 1.7; margin-bottom: 32px;
+    }
+    .kpi-row {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 14px; margin-bottom: 10px;
+    }
+    .kpi {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: var(--r-sm); padding: 16px;
+    }
+    .kpi .label { font-size: 11px; text-transform: uppercase; letter-spacing: .09em; color: var(--faint); margin-bottom: 6px; }
+    .kpi .val { font-size: 15px; font-weight: 600; }
+
+    /* ── NAV ── */
+    .toc { display: flex; flex-wrap: wrap; gap: 8px; padding: 18px 0; border-bottom: 1px solid var(--border); }
+    .toc a {
+      padding: 8px 14px; border-radius: 999px; font-size: 13px;
+      background: rgba(255,255,255,.04); border: 1px solid var(--border);
+      color: var(--muted); font-weight: 500;
+      transition: background .15s, color .15s;
+    }
+    .toc a:hover { background: rgba(255,255,255,.08); color: var(--text); text-decoration: none; }
+
+    /* ── MAIN ── */
+    main { padding: 36px 0 80px; }
+    .section { margin-bottom: 28px; }
+    .card {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 28px;
+    }
+    h2 {
+      font-size: 22px; font-weight: 700; letter-spacing: -.02em;
+      margin-bottom: 14px; color: var(--text);
+    }
+    h2 .h2-icon { margin-right: 10px; }
+    p { margin-bottom: 12px; color: var(--muted); font-size: 15.5px; }
+    p strong { color: var(--text); }
+    ul, ol { padding-left: 22px; }
+    li { margin: 9px 0; color: var(--muted); font-size: 15px; }
+    li strong { color: var(--text); }
+
+    /* callouts */
+    .callout {
+      border-radius: var(--r-sm); padding: 14px 18px; margin: 18px 0;
+      font-size: 14.5px; border: 1px solid;
+    }
+    .callout-green  { background: rgba(82,217,139,.07); color: #a8f0c8; border-color: rgba(82,217,139,.2); }
+    .callout-amber  { background: rgba(240,192, 96,.07); color: #fce9a4; border-color: rgba(240,192,96,.2); }
+    .callout-red    { background: rgba(240,112,128,.07); color: #ffc4cc; border-color: rgba(240,112,128,.2); }
+
+    /* tables */
+    .table-wrap { overflow-x: auto; margin-top: 16px; border-radius: var(--r-sm); border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th {
+      background: rgba(255,255,255,.03);
+      color: var(--accent); font-size: 11px; text-transform: uppercase;
+      letter-spacing: .09em; padding: 12px 14px; text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    td { padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,.04); vertical-align: top; color: var(--muted); }
+    tr:last-child td { border-bottom: none; }
+    td code, .pill {
+      font-family: var(--mono); font-size: 12.5px;
+      background: rgba(79,168,232,.1); color: var(--accent);
+      padding: 2px 7px; border-radius: 6px;
+    }
+    .pill-green { background: rgba(82,217,139,.1); color: var(--green); font-family: var(--mono); font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+    .pill-amber { background: rgba(240,192,96,.1); color: var(--amber); font-family: var(--mono); font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+    .pill-red   { background: rgba(240,112,128,.1); color: var(--red);   font-family: var(--mono); font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+
+    code { font-family: var(--mono); font-size: 13px; background: rgba(79,168,232,.1); color: var(--accent); padding: 2px 7px; border-radius: 6px; }
+
+    /* grid layouts */
+    .two { display: grid; gap: 18px; }
+    @media (min-width: 800px) {
+      .two { grid-template-columns: 1fr 1fr; }
+      .two .span-2 { grid-column: 1/-1; }
+    }
+
+    /* timeline */
+    .timeline { list-style: none; padding: 0; }
+    .timeline li {
+      position: relative; padding: 12px 12px 12px 28px; border-left: 2px solid var(--faint); margin: 0; color: var(--muted);
+    }
+    .timeline li::before {
+      content: ''; position: absolute; left: -6px; top: 18px;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: var(--accent); border: 2px solid var(--bg);
+    }
+    .timeline li .t-date { font-family: var(--mono); font-size: 12px; color: var(--accent); display: block; margin-bottom: 4px; }
+
+    /* verification sources */
+    .sources { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .src-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 9px 16px; border-radius: 999px; font-size: 13px; font-weight: 500;
+      background: rgba(79,168,232,.08); border: 1px solid rgba(79,168,232,.2);
+      color: var(--accent); transition: background .15s;
+      text-decoration: none;
+    }
+    .src-btn:hover { background: rgba(79,168,232,.16); text-decoration: none; }
+
+    /* footer */
+    footer {
+      padding: 28px 0 50px; color: var(--faint); font-size: 13px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--muted); }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="wrap">
+      <div class="badge">Investigation indépendante · Rapport public</div>
+      <h1>BGP Hijack visant <span>Orange France</span><br>— Rapport Technique Final</h1>
+      <p class="lead">
+        Ce document synthétise une investigation sur un détournement BGP visant le préfixe
+        <code>90.98.0.0/15</code> d'Orange France. Il présente les conclusions consolidées
+        après une revue technique incluant des échanges avec
+        <strong style="color:var(--text)">Doug Madory (Kentik)</strong>.
+        Certaines hypothèses initiales ont été corrigées et sont documentées explicitement.
+      </p>
+      <div class="kpi-row">
+        <div class="kpi"><div class="label">Préfixe ciblé</div><div class="val" style="color:var(--accent)">90.98.0.0/15</div></div>
+        <div class="kpi"><div class="label">IPs concernées</div><div class="val">131 072</div></div>
+        <div class="kpi"><div class="label">Première annonce</div><div class="val">25 fév. 2026</div></div>
+        <div class="kpi"><div class="label">Pic d'injection</div><div class="val">13 avril 2026</div></div>
+        <div class="kpi"><div class="label">Routes injectées</div><div class="val">1 088 / 5 min</div></div>
+        <div class="kpi"><div class="label">Visibilité RIPE</div><div class="val" style="color:var(--red)">99,7 %</div></div>
+        <div class="kpi"><div class="label">Statut RPKI</div><div class="val" style="color:var(--red)">UNKNOWN</div></div>
+        <div class="kpi"><div class="label">Infra réelle (récente)</div><div class="val" style="color:var(--amber)">AS29802 Hivelocity</div></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="wrap">
+    <div class="toc">
+      <a href="#resume">Résumé</a>
+      <a href="#chronologie">Chronologie</a>
+      <a href="#asn">Carte des ASN</a>
+      <a href="#confirmations">Éléments confirmés</a>
+      <a href="#corrections">Corrections</a>
+      <a href="#interpretation">Interprétation</a>
+      <a href="#actions">Actions recommandées</a>
+      <a href="#sources">Sources</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <!-- Résumé -->
+      <section class="section two" id="resume">
+        <div class="card">
+          <h2><span class="h2-icon">📋</span>Résumé exécutif</h2>
+          <p>Une annonce BGP frauduleuse vise le préfixe <code>90.98.0.0/15</code> appartenant
+          légitimement à <strong>AS3215 Orange France</strong>. L'investigation initiale avait
+          identifié une chaîne complexe impliquant plusieurs ASN sur plusieurs continents.</p>
+          <p>Après revue technique complémentaire, les conclusions ont été affinées : la complexité
+          apparente de l'AS path résulte en grande partie d'une <strong>falsification intentionnelle</strong>
+          de segments du chemin BGP destinée à brouiller l'attribution.</p>
+          <div class="callout callout-green">
+            <strong>Conclusion consolidée :</strong> AS41128 est l'origine frauduleuse.
+            AS29802 Hivelocity est l'infrastructure réelle côté destination dans la version récente.
+            AS199524 G-Core était le seul transit réel dans une version antérieure.
+            Hypothèse finale : <strong>spam / usage abusif d'espace IP non blacklisté.</strong>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2><span class="h2-icon">🎯</span>Contexte de la correction</h2>
+          <p>La révision des conclusions ne constitue <strong>pas une invalidation</strong> de l'investigation
+          mais une amélioration de sa rigueur méthodologique. C'est le résultat normal d'une revue
+          par les pairs.</p>
+          <p>La correction principale porte sur le <strong>rôle de plusieurs ASN dans le chemin</strong> :
+          certains segments étaient forgés pour simuler une infrastructure multi-AS complexe,
+          alors que la chaîne réelle est plus directe.</p>
+          <div class="callout callout-amber">
+            <strong>Pourquoi ça reste sérieux :</strong> même sur un espace inutilisé, ce type d'opération
+            permet d'envoyer du spam depuis des IPs réputées propres, sans historique dans les blacklists.
+            AS263692 est pré-positionné sur un second préfixe : réserve prévue quand les premières IPs seront brûlées.
+          </div>
+        </div>
+      </section>
+
+      <!-- Chronologie -->
+      <section class="section card" id="chronologie">
+        <h2><span class="h2-icon">🕒</span>Chronologie</h2>
+        <ul class="timeline">
+          <li>
+            <span class="t-date">25 février 2026 · 08:00 UTC</span>
+            Première annonce frauduleuse de <code>90.98.0.0/15</code> via <code>AS41128</code>.
+            Enregistrée uniquement dans ALTDB. Statut RPKI : UNKNOWN.
+            Aucune détection publique — <strong>51 jours de préparation discrète.</strong>
+          </li>
+          <li>
+            <span class="t-date">13 avril 2026 · 16:27 UTC</span>
+            Injection massive : <strong>1 088 routes annoncées en 5 minutes</strong>.
+            La route devient visible par 328/329 pairs RIPE IPv4 (99,7 %).
+            Visibilité mondiale confirmée (Amsterdam, Londres, Frankfurt, Tokyo, São Paulo, Dubai).
+          </li>
+          <li>
+            <span class="t-date">14 avril 2026</span>
+            La version antérieure de l'AS path — où <code>AS199524 G-Core</code> était le seul transit réel —
+            disparaît. L'attaquant reconstruit un AS path autour de <code>AS29802 Hivelocity</code>.
+          </li>
+          <li>
+            <span class="t-date">15 avril 2026</span>
+            Spamhaus interagit publiquement sur l'investigation, signalant une surveillance de l'incident.
+          </li>
+          <li>
+            <span class="t-date">17–18 avril 2026</span>
+            Revue technique incluant des échanges avec Doug Madory (Kentik). Correction et publication
+            du rapport final.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Carte ASN -->
+      <section class="section card" id="asn">
+        <h2><span class="h2-icon">🗺️</span>Carte des ASN impliqués</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>ASN</th><th>Entité</th><th>Pays</th><th>Rôle retenu</th><th>Fiabilité</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>AS41128</code></td>
+                <td>ORANGEFR-GRX-AS</td>
+                <td>🇫🇷 France</td>
+                <td>Origine frauduleuse de l'annonce</td>
+                <td><span class="pill-red">Confirmé</span></td>
+              </tr>
+              <tr>
+                <td><code>AS29802</code></td>
+                <td>Hivelocity Inc.</td>
+                <td>🇺🇸 Dallas, TX</td>
+                <td>Infrastructure réelle — destination finale (version récente)</td>
+                <td><span class="pill-green">Confirmé</span></td>
+              </tr>
+              <tr>
+                <td><code>AS199524</code></td>
+                <td>G-Core Labs S.A.</td>
+                <td>🇱🇺 Luxembourg</td>
+                <td>Seul transit réel dans la version antérieure — sorti le 14/04</td>
+                <td><span class="pill-green">Confirmé</span></td>
+              </tr>
+              <tr>
+                <td><code>AS270118</code></td>
+                <td>Soluciones Analiticos y Servicios</td>
+                <td>🇲🇽 Mexique</td>
+                <td>Couverture IRR / ALTDB — revendique <code>90.98.0.0/15</code></td>
+                <td><span class="pill-amber">Probable</span></td>
+              </tr>
+              <tr>
+                <td><code>AS263692</code></td>
+                <td>DIRECNET S.A.C</td>
+                <td>🇵🇪 Pérou</td>
+                <td>Couverture IRR / pré-positionnement sur <code>92.183.128.0/18</code></td>
+                <td><span class="pill-amber">Probable</span></td>
+              </tr>
+              <tr>
+                <td><code>AS22541</code></td>
+                <td>MegaLink S.R.L.</td>
+                <td>🇧🇴 Bolivie</td>
+                <td>Probablement forgé dans l'AS path version récente</td>
+                <td><span class="pill-red">Corrigé</span></td>
+              </tr>
+              <tr>
+                <td><code>AS8529</code></td>
+                <td>Omantel / Zain</td>
+                <td>🇴🇲 Oman</td>
+                <td>Probablement forgé dans l'AS path — hypothèse géopolitique non retenue</td>
+                <td><span class="pill-red">Corrigé</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Confirmé / Corrigé -->
+      <section class="section two">
+        <div class="card" id="confirmations">
+          <h2><span class="h2-icon">✅</span>Éléments confirmés</h2>
+          <ul>
+            <li><code>90.98.0.0/15</code> appartient légitimement à <strong>Orange France (AS3215)</strong>.</li>
+            <li><code>AS41128</code> est utilisé comme <strong>origine frauduleuse</strong>.</li>
+            <li>Le statut RPKI est <strong>UNKNOWN</strong> — aucun ROA valide n'existe pour ce préfixe, ce qui permet l'acceptation par certains réseaux.</li>
+            <li><code>AS29802 Hivelocity</code> est le seul ASN réel côté destination dans la version récente.</li>
+            <li><code>AS199524 G-Core</code> était le seul ASN réel dans la version précédente.</li>
+            <li>Hypothèse finale retenue : <strong>spam / abus réseau</strong> depuis des IPs avec aucun historique blacklist.</li>
+            <li><code>AS263692</code> pré-positionné sur <code>92.183.128.0/18</code> — probablement la <strong>réserve</strong> quand les premières IPs seront blacklistées.</li>
+          </ul>
+        </div>
+
+        <div class="card" id="corrections">
+          <h2><span class="h2-icon">🔄</span>Hypothèses corrigées</h2>
+          <div class="callout callout-red">
+            <strong>Correction majeure :</strong> plusieurs ASN interprétés initialement comme transits réels
+            sont en réalité <strong>probablement forgés</strong> dans l'AS path.
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Élément</th><th>Avant</th><th>Après correction</th></tr></thead>
+              <tbody>
+                <tr><td>AS22541 MegaLink</td><td>Transit réel</td><td>Probablement forgé</td></tr>
+                <tr><td>AS8529 Oman</td><td>Piste géopolitique</td><td>Probablement forgé</td></tr>
+                <tr><td>AS270118</td><td>Transit actif possible</td><td>Couverture IRR uniquement</td></tr>
+                <tr><td>AS263692</td><td>Cible secondaire opérationnelle</td><td>Pré-positionnement / IRR plausible</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interprétation -->
+      <section class="section card" id="interpretation">
+        <h2><span class="h2-icon">💡</span>Interprétation finale</h2>
+        <p>L'attaque combine deux techniques complémentaires : un <strong>détournement BGP d'espace inutilisé</strong>
+        pour obtenir des IPs avec une réputation propre, et une <strong>falsification de segments d'AS path</strong>
+        pour compliquer l'analyse de l'incident et ralentir l'attribution.</p>
+        <p>Ce mode opératoire est cohérent avec des campagnes cherchant des IPs neuves pour
+        de l'envoi de spam en volume, des abus réseau à faible friction ou du phishing d'IPs propres.
+        Le fait que l'espace soit probablement inutilisé réduit la probabilité d'impact sur les abonnés
+        Orange, mais le signal technique reste significatif et mérite action.</p>
+        <p>La présence d'un second préfixe pré-positionné (<code>92.183.128.0/18</code> via AS263692)
+        est cohérente avec un acteur qui <strong>prévoit une rotation</strong> de ses IPs quand les premières
+        seront blacklistées.</p>
+      </section>
+
+      <!-- Actions -->
+      <section class="section card" id="actions">
+        <h2><span class="h2-icon">📌</span>Actions recommandées</h2>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Action</th><th>Responsable</th><th>Urgence</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>Révoquer les enregistrements IRR / ALTDB frauduleux pour <code>90.98.0.0/15</code></td><td>Orange France / RIPE NCC</td><td><span class="pill-red">Immédiat</span></td></tr>
+              <tr><td>2</td><td>Créer des ROA RPKI valides pour <code>90.98.0.0/15</code> et <code>92.183.128.0/18</code></td><td>Orange France</td><td><span class="pill-red">Immédiat</span></td></tr>
+              <tr><td>3</td><td>Auditer les accès au compte RIPE / ALTDB lié à <code>AS41128</code> depuis janvier 2026</td><td>Orange France / RIPE NCC</td><td><span class="pill-red">Immédiat</span></td></tr>
+              <tr><td>4</td><td>Contacter <code>AS29802 Hivelocity</code> pour identifier le client recevant le trafic</td><td>CERT-FR / FBI</td><td><span class="pill-amber">Urgent</span></td></tr>
+              <tr><td>5</td><td>Surveiller <code>AS263692</code> pour tentative sur <code>92.183.128.0/18</code></td><td>CERT-FR / RIPE NCC</td><td><span class="pill-amber">Urgent</span></td></tr>
+              <tr><td>6</td><td>Signaler AS270118 et AS263692 au LACNIC abuse desk</td><td>CERT-FR</td><td><span class="pill-amber">Urgent</span></td></tr>
+              <tr><td>7</td><td>Mettre à jour les communications publiques : retirer les conclusions non confirmées sur Oman / MegaLink</td><td>Auteur de l'investigation</td><td><span class="pill-green">Fait</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Sources -->
+      <section class="section card" id="sources">
+        <h2><span class="h2-icon">🔗</span>Sources de vérification</h2>
+        <p>Toutes les données techniques de ce rapport sont vérifiables en temps réel via les sources ouvertes suivantes :</p>
+        <div class="sources">
+          <a class="src-btn" href="https://stat.ripe.net/resource/90.98.0.0/15#tabId=routing" target="_blank" rel="noopener noreferrer">RIPEstat — 90.98.0.0/15</a>
+          <a class="src-btn" href="https://bgp.tools/prefix/90.98.0.0/15" target="_blank" rel="noopener noreferrer">BGP.tools — Préfixe</a>
+          <a class="src-btn" href="https://radar.cloudflare.com/routing/as41128" target="_blank" rel="noopener noreferrer">Cloudflare Radar — AS41128</a>
+          <a class="src-btn" href="https://bgp.tools/as/263692" target="_blank" rel="noopener noreferrer">BGP.tools — AS263692</a>
+        </div>
+        <div class="callout callout-amber" style="margin-top:20px">
+          <strong>Note méthodologique :</strong> ce rapport est une investigation indépendante publiée à des fins éducatives et de transparence. Les éléments corrigés sont documentés explicitement pour distinguer les hypothèses initiales des conclusions retenues après revue.
+        </div>
+      </section>
+
+    </div><!-- /wrap -->
+  </main>
+
+  <footer>
+    <div class="wrap">
+      Investigation indépendante · Mise à jour le 18 avril 2026 · Revue technique incluant des échanges avec Doug Madory (Kentik)
+    </div>
+  </footer>
+
+</body>
+</html>

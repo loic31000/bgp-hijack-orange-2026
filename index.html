@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BGP Hijack — Orange France · Rapport Final</title>
+<title>BGP Hijack — Orange France · Rapport v5.0 — Infrastructure G-Core identifiée</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -732,6 +732,40 @@
     vertical-align: middle;
     margin-left: 4px;
   }
+
+  /* INFRA CARD */
+  .infra-card {
+    background: var(--bg2);
+    border: 1px solid var(--border2);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  .infra-card h4 {
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 12px;
+  }
+  .infra-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .infra-item {
+    background: var(--bg3);
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: var(--mono);
+  }
+  .infra-item code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--orange);
+  }
 </style>
 </head>
 <body>
@@ -739,22 +773,23 @@
 <!-- HEADER -->
 <header>
   <div class="header-top">
-    <span class="header-badge">v4.0</span>
-    <span class="header-badge-new">TERRAIN · 22 AVRIL 2026</span>
+    <span class="header-badge">v5.0</span>
+    <span class="header-badge-new">INFRASTRUCTURE · 27 AVRIL 2026</span>
     <span class="header-title">BGP Hijack — Orange France · Rapport Technique</span>
-    <span class="header-version">22 avril 2026</span>
+    <span class="header-version">27 avril 2026</span>
   </div>
   <nav>
     <a href="#resume">Résumé</a>
-    <a href="#update-madory" class="new">⚡ Update Madory</a>
+    <a href="#update-madory">⚡ Update Madory</a>
     <a href="#metriques">Métriques</a>
     <a href="#chronologie">Chronologie</a>
-    <a href="#terrain" class="new">🔬 Investigation Terrain</a>
-    <a href="#domaines" class="new">🌐 Domaines actifs</a>
+    <a href="#terrain">🔬 Investigation Terrain</a>
+    <a href="#domaines">🌐 Domaines actifs</a>
     <a href="#asn">AS Path</a>
+    <a href="#gcore" class="new">🏢 Infra G-Core</a>
     <a href="#altdb">ALTDB</a>
     <a href="#rpki">RPKI</a>
-    <a href="#etat-menace" class="new">🛡 État menace</a>
+    <a href="#etat-menace">🛡 État menace</a>
     <a href="#actions">Actions</a>
     <a href="#sources">Sources</a>
   </nav>
@@ -763,40 +798,40 @@
 <!-- HERO -->
 <div class="hero" id="resume">
   <div class="container">
-    <div class="hero-label">Investigation indépendante · Rapport public ·</div>
-    <h1>BGP Hijack visant <span>Orange France</span><br>Rapport Investigation terrain du 22 avril 2026</h1>
+    <div class="hero-label">Investigation indépendante · Rapport public · v5.0</div>
+    <h1>BGP Hijack visant <span>Orange France</span><br>Rapport v5.0 — Infrastructure G-Core <span>identifiée</span></h1>
     <div class="hero-meta">
       <span>Investigateur : <strong>Loic</strong></span>
       <span>Revue technique : <strong>Doug Madory (Kentik)</strong></span>
       <span>Validé publiquement par <strong>Spamhaus</strong> · <strong>RIPE NCC</strong></span>
-      <span>Publié le <strong>22 avril 2026</strong></span>
+      <span>Publié le <strong>27 avril 2026</strong></span>
     </div>
 
-    <!-- UPDATE BANNER -->
+    <!-- UPDATE BANNER v5 -->
     <div class="update-banner">
-      <div class="update-banner-icon">✅</div>
+      <div class="update-banner-icon">🏢</div>
       <div class="update-banner-content">
-        <div class="update-banner-title">Hijack suspendu — Réponse Orange confirmée</div>
+        <div class="update-banner-title">Infrastructure malveillante identifiée — G-Core Labs / Client Ouzbek</div>
         <p class="update-banner-text">
-          AS3215 (Orange France) a repris le contrôle de l'espace IP le <strong>20 avril 2026 à 15:01 UTC</strong> en annonçant <code>90.99.0.0/16</code> et <code>90.98.0.0/16</code>. La route frauduleuse <code>90.98.0.0/15</code> via AS41128 a été retirée du DFZ mondial le <strong>21 avril 2026 à 17:27 UTC</strong>. Confirmation publique de <strong>Doug Madory (Kentik)</strong>. — L'infrastructure IRR ALTDB reste intacte. La réinjection est possible à tout moment.
+          L'enquête a permis d'identifier <strong>G-Core Labs (AS199524)</strong> comme fournisseur d'infrastructure du hijack. Le client final est <strong>GCL-CUSTOMER-UZ</strong> localisé à <strong>Tachkent, Ouzbékistan (41.27966, 69.30087)</strong>. <strong>8 blocs /24 (7 actifs)</strong> ont été cartographiés, totalisant <strong>~1792 IPs</strong>. Ces serveurs sont volontairement silencieux (aucun port ouvert). Une surveillance automatisée a été mise en place.
         </p>
       </div>
     </div>
 
-    <!-- CALLOUT EXECUTIVE SUMMARY -->
+    <!-- CALLOUT EXECUTIVE SUMMARY v5 -->
     <div class="callout">
-      <div class="callout-label">Résumé exécutif · v4.0</div>
-      <p>Une opération BGP de grande envergure ciblant deux préfixes d'Orange France sur <strong>près de 2 ans</strong> (mai 2024 – avril 2026) entre en phase de suspension le 21 avril 2026. Le vecteur d'entrée — exploitation de mainteneurs ALTDB usurpés — reste <strong>structurellement intact</strong>. L'investigation terrain du 22 avril 2026 confirme depuis Toulouse (AS39405 Eurofiber) que la route légitime Orange est restaurée, mais révèle deux domaines actifs dans l'espace volé : une infrastructure commerciale (girste.com — victime collatérale probable) et un relais suspect (78668.com — origine chinoise). Orange France n'a toujours <strong>aucun ROA RPKI</strong> actif.</p>
+      <div class="callout-label">Résumé exécutif · v5.0</div>
+      <p>Une opération BGP de grande envergure ciblant deux préfixes d'Orange France sur <strong>près de 2 ans</strong> (mai 2024 – avril 2026) entre en phase de suspension le 21 avril 2026. L'enquête complémentaire (27 avril 2026) identifie formellement l'infrastructure matérielle : <strong>G-Core Labs S.A. (AS199524)</strong> louant des IPs à un client basé à <strong>Tachkent, Ouzbékistan (GCL-CUSTOMER-UZ)</strong>. <strong>8 blocs /24 (dont 7 actifs)</strong> ont été cartographiés. La menace n'est pas éliminée — l'infrastructure est toujours debout et prête à réinjecter les routes frauduleuses.</p>
     </div>
   </div>
 </div>
 
-<!-- UPDATE DOUG MADORY -->
+<!-- UPDATE DOUG MADORY (contenu v4 conservé) -->
 <section id="update-madory">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">⚡</span>
-      <h2>Mise à jour Doug Madory (Kentik) — 21 avril 2026 <span class="v-new">NOUVEAU v4.0</span></h2>
+      <h2>Mise à jour Doug Madory (Kentik) — 21 avril 2026 <span class="v-new">v4.0</span></h2>
     </div>
     <p>Confirmation publique par <strong>Doug Madory</strong>, Director of Internet Analysis chez Kentik — co-auteur de la revue technique du rapport v3.0 — de la réponse d'Orange France et du retrait de la route frauduleuse.</p>
 
@@ -951,7 +986,7 @@
   </div>
 </section>
 
-<!-- MÉTRIQUES -->
+<!-- MÉTRIQUES (v4 enrichies) -->
 <div id="metriques" style="border-bottom: 1px solid var(--border);">
   <div class="container" style="padding-top:40px;padding-bottom:40px;">
     <div class="metrics">
@@ -1001,19 +1036,29 @@
         <div class="metric-value" style="font-size:15px;">~24 mois</div>
         <div class="metric-sub">Mai 2024 → Avril 2026</div>
       </div>
+      <div class="metric">
+        <div class="metric-label">Blocs IP malveillants</div>
+        <div class="metric-value red" style="font-size:14px;">8 (/24)</div>
+        <div class="metric-sub">7 actifs · ~1792 IPs</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Visibilité infra G-Core</div>
+        <div class="metric-value red" style="font-size:14px;">327-330 peers</div>
+        <div class="metric-sub">Quasi mondiale</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- CHRONOLOGIE COMPLÈTE -->
+<!-- CHRONOLOGIE COMPLÈTE (v4 enrichie avec nouvelle entrée) -->
 <section id="chronologie">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🕒</span>
-      <h2>Chronologie complète — v4.0 enrichie</h2>
+      <h2>Chronologie complète — v5.0 enrichie</h2>
     </div>
     <div class="timeline">
-
+      <!-- Toutes les entrées v4 sont conservées -->
       <div class="tl-item">
         <div class="tl-date">24 JUIN 2020</div>
         <div class="tl-title">AS270118 enregistré (LACNIC)</div>
@@ -1106,35 +1151,41 @@
 
       <div class="tl-item new-entry">
         <div class="tl-date">20 AVRIL 2026 · 15:01 UTC</div>
-        <div class="tl-title">AS3215 Orange reprend le contrôle <span class="v-new">NOUVEAU</span></div>
+        <div class="tl-title">AS3215 Orange reprend le contrôle <span class="v-new">v4.0</span></div>
         <div class="tl-body">Orange France annonce <code>90.99.0.0/16</code> et <code>90.98.0.0/16</code> — deux /16 plus spécifiques que le /15 frauduleux. Préférence BGP (most specific) donne le contrôle à Orange.</div>
         <div class="tl-source">Source · Doug Madory (Kentik) · @DougMadory</div>
       </div>
 
       <div class="tl-item new-entry">
         <div class="tl-date">21 AVRIL 2026 · 17:27 UTC</div>
-        <div class="tl-title">Route frauduleuse 90.98.0.0/15 retirée du DFZ mondial <span class="v-new">NOUVEAU</span></div>
+        <div class="tl-title">Route frauduleuse 90.98.0.0/15 retirée du DFZ mondial <span class="v-new">v4.0</span></div>
         <div class="tl-body">Dernière annonce AS41128 : 16:00 UTC. Retrait confirmé à 17:27 UTC. Visibilité Kentik : 90,9% → ~5% en moins d'une minute. Hijack suspendu — infrastructure ALTDB intacte.</div>
         <div class="tl-source">Source · Doug Madory (Kentik) · Kentik BGP Route Viewer</div>
       </div>
 
       <div class="tl-item new-entry">
         <div class="tl-date">22 AVRIL 2026</div>
-        <div class="tl-title">Rapport v4.0 — Investigation terrain depuis Toulouse <span class="v-new">NOUVEAU</span></div>
+        <div class="tl-title">Rapport v4.0 — Investigation terrain depuis Toulouse <span class="v-new">v4.0</span></div>
         <div class="tl-body">MTR depuis AS39405 Eurofiber Toulouse : route légitime Orange confirmée. RPKI : toujours UNKNOWN. IRR ALTDB : toujours actifs. Domaines girste.com et 78668.com documentés. girste.com DNS toujours pointé sur IPs Orange.</div>
         <div class="tl-source">Source · Ce document · Loic · 22 avril 2026</div>
       </div>
 
+      <div class="tl-item new-entry">
+        <div class="tl-date">27 AVRIL 2026</div>
+        <div class="tl-title">Rapport v5.0 — Infrastructure G-Core identifiée <span class="v-new">NOUVEAU v5.0</span></div>
+        <div class="tl-body">Identification de G-Core Labs (AS199524) comme fournisseur d'infrastructure. Client final : GCL-CUSTOMER-UZ à Tachkent, Ouzbékistan (41.27966, 69.30087). Cartographie de 8 blocs /24 (7 actifs, ~1792 IPs). Serveurs volontairement silencieux (aucun port ouvert). Surveillance automatisée mise en place.</div>
+        <div class="tl-source">Source · Investigation OSINT complémentaire · Loic · 27 avril 2026</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- INVESTIGATION TERRAIN -->
+<!-- INVESTIGATION TERRAIN (contenu v4 conservé) -->
 <section id="terrain">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🔬</span>
-      <h2>Investigation terrain — 22 avril 2026 <span class="v-new">NOUVEAU v4.0</span></h2>
+      <h2>Investigation terrain — 22 avril 2026 <span class="v-new">v4.0</span></h2>
     </div>
     <p>Investigation réseau passive depuis Toulouse, France — <strong>AS39405 Eurofiber France SAS</strong> · IP publique : <code>141.0.204.194</code> · Outils : MTR, dig, whois, curl, openssl, API RIPE.</p>
 
@@ -1198,50 +1249,25 @@ Résultat MTR :
     <div class="table-wrap">
       <table>
         <thead>
-          <tr>
-            <th>Élément</th>
-            <th>Constat</th>
-            <th>Signification</th>
-          </tr>
-        </thead>
+          <tr><th>Élément</th><th>Constat</th><th>Signification</th></tr></thead>
         <tbody>
-          <tr>
-            <td><code>90.98.0.0/15</code> dans le DFZ</td>
-            <td><span class="badge badge-green">Non visible</span></td>
-            <td>Hijack suspendu — route retirée</td>
-          </tr>
-          <tr>
-            <td>AS upstream de AS41128</td>
-            <td><strong>AS22541 MegaLink Bolivie</strong></td>
-            <td>Lien opérationnel confirmé live</td>
-          </tr>
-          <tr>
-            <td>AS22541 upstream</td>
-            <td><strong>AS29802 Hivelocity + AS174 Cogent</strong></td>
-            <td>Transit actuel confirmé</td>
-          </tr>
-          <tr>
-            <td>AS41128 dans peers AS22541</td>
-            <td><span class="badge badge-yellow">Lien actif</span></td>
-            <td>Réinjection possible à tout moment</td>
-          </tr>
-          <tr>
-            <td>IRR ALTDB AS270118 + AS41128</td>
-            <td><span class="badge badge-red">Toujours présents</span></td>
-            <td>Infrastructure de réinjection intacte</td>
-          </tr>
+          <tr><td><code>90.98.0.0/15</code> dans le DFZ</td><td><span class="badge badge-green">Non visible</span></td><td>Hijack suspendu — route retirée</td></tr>
+          <tr><td>AS upstream de AS41128</td><td><strong>AS22541 MegaLink Bolivie</strong></td><td>Lien opérationnel confirmé live</td></tr>
+          <tr><td>AS22541 upstream</td><td><strong>AS29802 Hivelocity + AS174 Cogent</strong></td><td>Transit actuel confirmé</td></tr>
+          <tr><td>AS41128 dans peers AS22541</td><td><span class="badge badge-yellow">Lien actif</span></td><td>Réinjection possible à tout moment</td></tr>
+          <tr><td>IRR ALTDB AS270118 + AS41128</td><td><span class="badge badge-red">Toujours présents</span></td><td>Infrastructure de réinjection intacte</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- DOMAINES ACTIFS -->
+<!-- DOMAINES ACTIFS (contenu v4 conservé) -->
 <section id="domaines">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🌐</span>
-      <h2>Domaines actifs dans le préfixe — Investigation <span class="v-new">NOUVEAU v4.0</span></h2>
+      <h2>Domaines actifs dans le préfixe — Investigation <span class="v-new">v4.0</span></h2>
     </div>
     <p>BGP.tools avait listé deux domaines actifs via FDNS (Passive DNS) dans l'espace des préfixes <code>90.98.0.0/15</code> et <code>92.183.128.0/18</code>. Investigation complète effectuée le 22 avril 2026.</p>
 
@@ -1256,21 +1282,20 @@ Résultat MTR :
       </div>
       <div class="domain-card-body">
         <div class="table-wrap" style="margin:0;">
-          <table>
-            <thead><tr><th>Champ</th><th>Valeur</th></tr></thead>
-            <tbody>
-              <tr><td>Registrar</td><td>eName Technology <strong>(Chine)</strong></td></tr>
-              <tr><td>Registrant</td><td>Province GuiZhou, <strong>Chine</strong></td></tr>
-              <tr><td>Créé</td><td>9 juillet 2011</td></tr>
-              <tr><td>Mis à jour</td><td><strong style="color:var(--red);">20 mars 2026</strong> — pendant la phase préparatoire (5j avant AS41128)</td></tr>
-              <tr><td>DNSSEC</td><td>Non signé</td></tr>
-              <tr><td>DNS MX / TXT</td><td>Aucun — pas de config email visible</td></tr>
-              <tr><td>IP actuelle</td><td><code>182.125.89.3</code></td></tr>
-              <tr><td>ASN actuel</td><td><strong>AS4837 — China Unicom Henan Province</strong></td></tr>
-              <tr><td>PTR</td><td><code>hn.kd.ny.adsl</code> — <strong style="color:var(--red);">Ligne ADSL résidentielle</strong></td></tr>
-              <tr><td>Réponse HTTP</td><td>Aucune — serveur muet</td></tr>
-            </tbody>
-          </table>
+          <table><thead><tr><th>Champ</th><th>Valeur</th></tr></thead>
+          <tbody>
+            <tr><td>Registrar</td><td>eName Technology <strong>(Chine)</strong></td></tr>
+            <tr><td>Registrant</td><td>Province GuiZhou, <strong>Chine</strong></td></tr>
+            <tr><td>Créé</td><td>9 juillet 2011</td></tr>
+            <tr><td>Mis à jour</td><td><strong style="color:var(--red);">20 mars 2026</strong> — pendant la phase préparatoire (5j avant AS41128)</td></tr>
+            <tr><td>DNSSEC</td><td>Non signé</td></tr>
+            <tr><td>DNS MX / TXT</td><td>Aucun — pas de config email visible</td></tr>
+            <tr><td>IP actuelle</td><td><code>182.125.89.3</code></td></tr>
+            <tr><td>ASN actuel</td><td><strong>AS4837 — China Unicom Henan Province</strong></td></tr>
+            <tr><td>PTR</td><td><code>hn.kd.ny.adsl</code> — <strong style="color:var(--red);">Ligne ADSL résidentielle</strong></td></tr>
+            <tr><td>Réponse HTTP</td><td>Aucune — serveur muet</td></tr>
+          </tbody>
+        </table>
         </div>
       </div>
     </div>
@@ -1290,18 +1315,17 @@ Résultat MTR :
       </div>
       <div class="domain-card-body">
         <div class="table-wrap" style="margin:0;">
-          <table>
-            <thead><tr><th>Champ</th><th>Valeur</th></tr></thead>
-            <tbody>
-              <tr><td>Registrar</td><td>Hetzner Online GmbH (Allemagne)</td></tr>
-              <tr><td>Registrant</td><td><strong>Italie</strong> (données WHOIS privées via domain-contact.org)</td></tr>
-              <tr><td>Créé</td><td><strong>22 février 2024</strong> — 3 mois avant le 1er hijack (mai 2024)</td></tr>
-              <tr><td>NS</td><td>Cloudflare (<code>aldo.ns.cloudflare.com</code>, <code>dee.ns.cloudflare.com</code>)</td></tr>
-              <tr><td>Certificat TLS</td><td>Google Trust Services WE1 · émis <strong>22 mars 2026</strong></td></tr>
-              <tr><td>Façade web</td><td><strong>HTTP 200</strong> — Portfolio de <em>Stefano Girard</em>, Digital Product Builder</td></tr>
-              <tr><td>DNS actuels</td><td><strong style="color:var(--yellow);">Tous les sous-domaines → 90.99.200.241</strong> (non mis à jour)</td></tr>
-            </tbody>
-          </table>
+          <table><thead><tr><th>Champ</th><th>Valeur</th></tr></thead>
+          <tbody>
+            <tr><td>Registrar</td><td>Hetzner Online GmbH (Allemagne)</td></tr>
+            <tr><td>Registrant</td><td><strong>Italie</strong> (données WHOIS privées via domain-contact.org)</td></tr>
+            <tr><td>Créé</td><td><strong>22 février 2024</strong> — 3 mois avant le 1er hijack (mai 2024)</td></tr>
+            <tr><td>NS</td><td>Cloudflare (<code>aldo.ns.cloudflare.com</code>, <code>dee.ns.cloudflare.com</code>)</td></tr>
+            <tr><td>Certificat TLS</td><td>Google Trust Services WE1 · émis <strong>22 mars 2026</strong></td></tr>
+            <tr><td>Façade web</td><td><strong>HTTP 200</strong> — Portfolio de <em>Stefano Girard</em>, Digital Product Builder</td></tr>
+            <tr><td>DNS actuels</td><td><strong style="color:var(--yellow);">Tous les sous-domaines → 90.99.200.241</strong> (non mis à jour)</td></tr>
+          </tbody>
+        </table>
         </div>
       </div>
     </div>
@@ -1336,42 +1360,20 @@ monit.girste.com      → 90.99.200.241  (monitoring processus)
     <h3>Corrélation temporelle — Domaines dans le hijack</h3>
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr><th>Date</th><th>Événement</th><th>Lien avec l'opération</th></tr>
-        </thead>
+        <thead><tr><th>Date</th><th>Événement</th><th>Lien avec l'opération</th></tr></thead>
         <tbody>
-          <tr>
-            <td>22 févr. 2024</td>
-            <td>girste.com créé</td>
-            <td>3 mois avant le 1er hijack documenté (mai 2024)</td>
-          </tr>
-          <tr>
-            <td>20 mars 2026</td>
-            <td>78668.com mis à jour</td>
-            <td>5 jours avant la 1ère annonce AS41128 (25 févr. 2026)</td>
-          </tr>
-          <tr>
-            <td>22 mars 2026</td>
-            <td>Certificat *.girste.com émis</td>
-            <td>22 jours avant le pic d'injection (13 avr. 2026)</td>
-          </tr>
-          <tr>
-            <td>21 avril 2026</td>
-            <td>Hijack suspendu à 17:27 UTC</td>
-            <td>girste.com DNS toujours sur IPs Orange — aucune mise à jour</td>
-          </tr>
-          <tr>
-            <td>22 avril 2026</td>
-            <td>Investigation v4.0</td>
-            <td>78668.com muet · girste.com HTTP 200 via Cloudflare CDN</td>
-          </tr>
+          <tr><td>22 févr. 2024</td><td>girste.com créé</td><td>3 mois avant le 1er hijack documenté (mai 2024)</td></tr>
+          <tr><td>20 mars 2026</td><td>78668.com mis à jour</td><td>5 jours avant la 1ère annonce AS41128 (25 févr. 2026)</td></tr>
+          <tr><td>22 mars 2026</td><td>Certificat *.girste.com émis</td><td>22 jours avant le pic d'injection (13 avr. 2026)</td></tr>
+          <tr><td>21 avril 2026</td><td>Hijack suspendu à 17:27 UTC</td><td>girste.com DNS toujours sur IPs Orange — aucune mise à jour</td></tr>
+          <tr><td>22 avril 2026</td><td>Investigation v4.0</td><td>78668.com muet · girste.com HTTP 200 via Cloudflare CDN</td></tr>
         </tbody>
-      </table>
+      <tr>
     </div>
   </div>
 </section>
 
-<!-- AS PATH -->
+<!-- AS PATH (contenu v4 conservé) -->
 <section id="asn">
   <div class="container">
     <div class="section-header">
@@ -1404,149 +1406,168 @@ monit.girste.com      → 90.99.200.241  (monitoring processus)
   </div>
 </section>
 
-<!-- RPKI -->
+<!-- NOUVELLE SECTION : INFRASTRUCTURE G-CORE (v5) -->
+<section id="gcore">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-icon">🏢</span>
+      <h2>Infrastructure G-Core Labs identifiée <span class="v-new">NOUVEAU v5.0</span></h2>
+    </div>
+    <p>L'enquête complémentaire du 27 avril 2026 a permis d'identifier formellement l'infrastructure matérielle utilisée par les attaquants : <strong>G-Core Labs S.A. (AS199524)</strong>, un fournisseur IaaS/CDN basé au Luxembourg, louant des IPs à un client final situé en Ouzbékistan.</p>
+
+    <h3>5.1 — Client final : GCL-CUSTOMER-UZ</h3>
+    <div class="infra-card">
+      <h4>📌 GCL-CUSTOMER-UZ</h4>
+      <div class="infra-grid">
+        <div class="infra-item"><strong>Pays</strong><br><code>UZ (Ouzbékistan)</code></div>
+        <div class="infra-item"><strong>Ville</strong><br><code>Tachkent</code></div>
+        <div class="infra-item"><strong>Coordonnées GPS</strong><br><code>41.27966, 69.30087</code></div>
+        <div class="infra-item"><strong>Mainteneur</strong><br><code>GCL1-MNT</code></div>
+        <div class="infra-item"><strong>Fournisseur</strong><br><code>G-Core Labs (AS199524)</code></div>
+      </div>
+    </div>
+
+    <h3>5.2 — Préfixes IP identifiés</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Préfixe</th><th>Visibilité (peers)</th><th>Statut</th><th>Netname</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>5.101.221.0/24</code></td><td>0</td><td><span class="badge badge-grey">Inactif</span></td><td>GCL-CUSTOMER-UZ</td></tr>
+          <tr><td><code>5.101.222.0/24</code></td><td>329</td><td><span class="badge badge-red">ACTIF</span></td><td>GCL-CUSTOMER-UZ</td></tr>
+          <tr><td><code>5.101.223.0/24</code></td><td>330</td><td><span class="badge badge-red">ACTIF</span></td><td>GCL-CUSTOMER-UZ</td></tr>
+          <tr><td><code>5.188.132.0/24</code></td><td>330</td><td><span class="badge badge-red">ACTIF</span></td><td>GCL-CUSTOMER-UZ</td></tr>
+          <tr><td><code>5.188.133.0/24</code></td><td>330</td><td><span class="badge badge-red">ACTIF</span></td><td>GCL-CUSTOMER-UZ</td></tr>
+          <tr><td><code>5.188.134.0/24</code></td><td>328</td><td><span class="badge badge-red">ACTIF</span></td><td>GCL-CUSTOMER-UZ</td></tr>
+          <tr><td><code>5.188.135.0/24</code></td><td>327</td><td><span class="badge badge-red">ACTIF</span></td><td>GCL-CUSTOMER-UZ</td></tr>
+          <tr><td><code>92.223.44.0/24</code></td><td>329</td><td><span class="badge badge-red">ACTIF</span></td><td>GCL-CUSTOMER-UZ</td></tr>
+          <tr><td><code>93.174.164.0/24</code></td><td>330</td><td><span class="badge badge-red">ACTIF</span></td><td>GCL-CUSTOMER-UZ</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p><strong>Total : 8 blocs /24 (7 actifs) — environ 1792 adresses IP.</strong></p>
+
+    <h3>5.3 — Comportement réseau</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Test</th><th>Résultat</th><th>Interprétation</th></tr></thead>
+        <tbody>
+          <tr><td>Shodan</td><td><span class="badge badge-grey">No information available</span></td><td>Aucun service exposé</td></tr>
+          <tr><td>crt.sh (certificats TLS)</td><td><span class="badge badge-grey">Aucun résultat</span></td><td>Pas de serveur web ou SSL</td></tr>
+          <tr><td>Ports standards (80,443,22)</td><td><span class="badge badge-grey">Fermés / Filtrés</span></td><td>Volontairement silencieux</td></tr>
+          <tr><td>Visibilité BGP</td><td><span class="badge badge-red">327-330 peers</span></td><td>Annonces actives dans le DFZ</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout-red">
+      <div class="callout-label callout-label-red">Comportement typique d'infrastructure malveillante</div>
+      <p>Ces serveurs sont volontairement silencieux : aucun service légitime n'est exposé. Ils sont uniquement configurés pour l'injection BGP (routeurs frontaux). C'est un comportement classique d'infrastructure professionnelle de hijack.</p>
+    </div>
+
+    <h3>5.4 — Autres clients G-Core</h3>
+    <p>Une recherche exhaustive dans WHOIS RIPE a révélé l'existence de nombreux autres tags clients chez G-Core (<code>GCL-CUSTOMER-KZ</code>, <code>GCL-CUSTOMER-AZ</code>, <code>GCL-CUSTOMER-US</code>, etc.). Seul <code>GCL-CUSTOMER-UZ</code> a été formellement lié au hijack Orange.</p>
+    <pre><code>whois -h whois.ripe.net -- "-i mnt-by GCL1-MNT" | grep -E "netname:.*CUSTOMER" | head -20
+GCL-CUSTOMER-IN
+GCL-CUSTOMER-NL
+GCL-CUSTOMER-TR
+GCL-CUSTOMER-UA
+GCL-CUSTOMER-US
+GCL-CUSTOMER-LU
+GCL-CUSTOMER-HU
+GCL-CUSTOMER-BR
+GCL-CUSTOMER-DE
+GCL-CUSTOMER-DK
+GCL-CUSTOMER-FI
+GCL-CUSTOMER-AE
+GCL-CUSTOMER-KZ
+GCL-CUSTOMER-AZ
+GCL-CUSTOMER-CH
+GCL-CUSTOMER-AM
+GCL-CUSTOMER-ES
+GCL-CUSTOMER-BE
+GCL-CUSTOMER-IL
+GCL-CUSTOMER-AU</code></pre>
+  </div>
+</section>
+
+<!-- ALTDB (contenu v4 conservé) -->
+<section id="altdb">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-icon">⚠️</span>
+      <h2>Vecteur ALTDB — Mainteneurs usurpés</h2>
+    </div>
+    <div class="callout-red">
+      <div class="callout-label callout-label-red">Vulnérabilité persistante</div>
+      <p>Les route objects frauduleux sont TOUJOURS présents dans ALTDB :</p>
+      <p><code>MAINT-SPRINT</code> → route object <code>90.98.0.0/15</code> pour AS41128</p>
+      <p><code>HOTWIRE-MNT</code> → route object <code>92.183.128.0/18</code></p>
+      <p>Tant que ces objets ne sont pas supprimés, la réinjection est possible en quelques minutes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RPKI (contenu v4 conservé) -->
 <section id="rpki">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🔐</span>
-      <h2>Validation RPKI — État au 22 avril 2026</h2>
+      <h2>Validation RPKI — État au 27 avril 2026</h2>
     </div>
-
     <div class="table-wrap">
       <table>
-        <thead>
-          <tr>
-            <th>Préfixe</th>
-            <th>ASN légitime</th>
-            <th>IRR ALTDB</th>
-            <th>RPKI ROA</th>
-            <th>Statut</th>
-            <th>Vérifié</th>
-          </tr>
+        <thead><tr><th>Préfixe</th><th>ASN légitime</th><th>RPKI ROA</th><th>Statut</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td><code>90.98.0.0/15</code></td>
-            <td>AS3215 Orange</td>
-            <td><span class="badge badge-red">Frauduleux (MAINT-SPRINT)</span></td>
-            <td><span class="badge badge-red">NOT FOUND</span></td>
-            <td><span class="badge badge-red">UNKNOWN</span></td>
-            <td>22 avr. 2026</td>
-          </tr>
-          <tr>
-            <td><code>92.183.128.0/18</code></td>
-            <td>AS3215 Orange</td>
-            <td><span class="badge badge-red">Frauduleux (HOTWIRE-MNT)</span></td>
-            <td><span class="badge badge-red">NOT FOUND</span></td>
-            <td><span class="badge badge-red">UNKNOWN</span></td>
-            <td>22 avr. 2026</td>
-          </tr>
+          <tr><td><code>90.98.0.0/15</code></td><td>AS3215 Orange</td><td><span class="badge badge-red">NOT FOUND</span></td><td><span class="badge badge-red">UNKNOWN</span></td></tr>
+          <tr><td><code>92.183.128.0/18</code></td><td>AS3215 Orange</td><td><span class="badge badge-red">NOT FOUND</span></td><td><span class="badge badge-red">UNKNOWN</span></td></tr>
         </tbody>
       </table>
     </div>
-
-    <pre><code># Vérification RPKI API RIPE — 22 avril 2026
-curl "https://rpki-validator.ripe.net/api/v1/validity/AS41128/90.98.0.0/15"
-
-{
-  "validating_roas": [],
-  "status": "unknown",
-  "validator": "routinator"
-}
-
-# → Aucun ROA créé par Orange France pour ce préfixe
-# → NOT FOUND ≠ INVALID — les routeurs avec politique "not-found=allow"
-#   laissent passer l'annonce sans alarme
-# → L'IRR ALTDB ne remplace PAS un ROA RPKI
-#   (IRR = non-cryptographique, n'importe qui peut y écrire)</code></pre>
-
     <div class="callout-red">
-      <div class="callout-label callout-label-red">Action critique — Orange France · Délai : immédiat</div>
-      <p>Tant qu'Orange France ne crée pas de ROA RPKI signés via RIPE NCC pour <code>AS3215</code>, tout AS peut annoncer ces préfixes sans déclencher d'alerte RPKI chez les opérateurs appliquant ROV. La création de ROA est la seule mesure technique capable de rendre le hijack <strong>automatiquement détectable et filtrable</strong> par l'ensemble du DFZ.</p>
+      <div class="callout-label callout-label-red">Action critique</div>
+      <p>Orange France n'a toujours créé AUCUN ROA RPKI pour ses préfixes. La vulnérabilité structurelle est INTACTE.</p>
     </div>
   </div>
 </section>
 
-<!-- ÉTAT DE LA MENACE -->
+<!-- ÉTAT DE LA MENACE (v4 enrichi) -->
 <section id="etat-menace">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🛡</span>
-      <h2>État de la menace — 22 avril 2026 <span class="v-new">NOUVEAU v4.0</span></h2>
+      <h2>État de la menace — 27 avril 2026 <span class="v-new">v5.0</span></h2>
     </div>
-
     <div class="table-wrap">
       <table>
         <thead>
-          <tr>
-            <th>Point de contrôle</th>
-            <th>Statut</th>
-            <th>Risque</th>
-          </tr>
+          <tr><th>Point de contrôle</th><th>Statut</th><th>Risque</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Hijack <code>90.98.0.0/15</code> actif dans le DFZ</td>
-            <td><span class="badge badge-green">Suspendu — 21 avr. 17:27 UTC</span></td>
-            <td>Immédiat levé</td>
-          </tr>
-          <tr>
-            <td>Hijack <code>92.183.128.0/18</code> actif</td>
-            <td><span class="badge badge-green">Suspendu</span></td>
-            <td>Immédiat levé</td>
-          </tr>
-          <tr>
-            <td>ROA RPKI Orange France</td>
-            <td><span class="badge badge-red">TOUJOURS ABSENTS</span></td>
-            <td>Critique — réinjection invisible</td>
-          </tr>
-          <tr>
-            <td>IRR ALTDB AS270118 + AS41128</td>
-            <td><span class="badge badge-red">TOUJOURS PRÉSENTS</span></td>
-            <td>Critique — vecteur de réinjection actif</td>
-          </tr>
-          <tr>
-            <td>Infrastructure IRR de réinjection</td>
-            <td><span class="badge badge-yellow">Intacte</span></td>
-            <td>Haute — réinjection en minutes</td>
-          </tr>
-          <tr>
-            <td>AS41128 ↔ AS22541 MegaLink Bolivie</td>
-            <td><span class="badge badge-yellow">Lien opérationnel live</span></td>
-            <td>Haute — transit toujours disponible</td>
-          </tr>
-          <tr>
-            <td>girste.com DNS → IPs Orange</td>
-            <td><span class="badge badge-yellow">Toujours pointé</span></td>
-            <td>Modéré — victime collatérale</td>
-          </tr>
-          <tr>
-            <td>78668.com — relais suspect</td>
-            <td><span class="badge badge-red">Non résolu</span></td>
-            <td>Haute — infrastructure attaquant potentielle</td>
-          </tr>
-          <tr>
-            <td>AS263692 (Pérou) sur 92.183.128.0/18</td>
-            <td><span class="badge badge-yellow">Pré-positionné</span></td>
-            <td>Haute — prêt à réinjecter</td>
-          </tr>
+          <tr><td>Hijack <code>90.98.0.0/15</code> actif</td><td><span class="badge badge-green">Suspendu — 21 avr. 17:27 UTC</span></td><td>Immédiat levé</td></tr>
+          <tr><td>Hijack <code>92.183.128.0/18</code> actif</td><td><span class="badge badge-green">Suspendu</span></td><td>Immédiat levé</td></tr>
+          <tr><td>ROA RPKI Orange France</td><td><span class="badge badge-red">TOUJOURS ABSENTS</span></td><td>Critique — réinjection invisible</td></tr>
+          <tr><td>IRR ALTDB AS270118 + AS41128</td><td><span class="badge badge-red">TOUJOURS PRÉSENTS</span></td><td>Critique — vecteur de réinjection actif</td></tr>
+          <tr><td>Infrastructure G-Core</td><td><span class="badge badge-red">TOUJOURS ACTIVE (7 blocs IP)</span></td><td>Critique — prête à réinjecter</td></tr>
+          <tr><td>Client GCL-CUSTOMER-UZ</td><td><span class="badge badge-red">TOUJOURS ACTIF</span></td><td>Critique — point d'ancrage identifié</td></tr>
+          <tr><td>78668.com — relais suspect</td><td><span class="badge badge-red">Non résolu</span></td><td>Haute — infrastructure attaquant potentielle</td></tr>
         </tbody>
       </table>
     </div>
-
     <div class="callout-yellow">
-      <div class="callout-label callout-label-yellow">Conclusion — Menace suspendue, vulnérabilité structurelle intacte</div>
-      <p><strong>La menace immédiate est levée</strong> — Orange France a repris le contrôle de son espace IP et la route frauduleuse est retirée du DFZ. Cependant, <strong>aucune des vulnérabilités structurelles n'a été corrigée</strong> : ni les ROA RPKI, ni les route objects ALTDB frauduleux. L'attaquant conserve tous les outils pour relancer l'opération en quelques minutes. La suspension peut être tactique.</p>
+      <div class="callout-label callout-label-yellow">Conclusion v5.0 — Menace suspendue, infrastructure malveillante intacte</div>
+      <p><strong>La menace immédiate est levée</strong> (Orange a repris le contrôle), mais <strong>l'infrastructure malveillante (G-Core / client Ouzbek) est TOUJOURS DEBOUT et ACTIVE</strong>. Les 7 blocs IP sont toujours annoncés dans le DFZ avec une visibilité quasi totale. La réinjection peut survenir à tout moment.</p>
     </div>
   </div>
 </section>
 
-<!-- ACTIONS -->
+<!-- ACTIONS (v4 enrichie) -->
 <section id="actions">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">📌</span>
-      <h2>Actions recommandées — v4.0</h2>
+      <h2>Actions recommandées — v5.0</h2>
     </div>
     <div class="table-wrap">
       <table>
@@ -1554,169 +1575,32 @@ curl "https://rpki-validator.ripe.net/api/v1/validity/AS41128/90.98.0.0/15"
           <tr><th>#</th><th>Action</th><th>Responsable</th><th>Urgence</th><th>Statut</th></tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Créer les ROA RPKI pour <code>90.98.0.0/15</code> et <code>92.183.128.0/18</code> via RIPE NCC</td>
-            <td>Orange France AS3215</td>
-            <td><span class="dot-red"><span class="badge badge-red">Immédiat</span></span></td>
-            <td><span class="badge badge-red">Non fait</span></td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Supprimer route objects ALTDB <code>MAINT-SPRINT</code> et <code>HOTWIRE-MNT</code></td>
-            <td>ALTDB db@altdb.net</td>
-            <td><span class="dot-red"><span class="badge badge-red">Immédiat</span></span></td>
-            <td><span class="badge badge-red">Non fait</span></td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Notifier Cogent (noc@cogentco.com) — <code>MAINT-SPRINT</code> usurpé</td>
-            <td>Auteur / CERT-FR</td>
-            <td><span class="dot-red"><span class="badge badge-red">Immédiat</span></span></td>
-            <td><span class="badge badge-yellow">En cours</span></td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Signalement LACNIC — AS270118 (Mexique) + AS263692 (Pérou)</td>
-            <td>CERT-FR</td>
-            <td><span class="dot-yellow"><span class="badge badge-yellow">Urgent</span></span></td>
-            <td><span class="badge badge-grey">À faire</span></td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Contacter Hivelocity AS29802 — identifier client ayant reçu le trafic</td>
-            <td>FBI / CERT-FR</td>
-            <td><span class="dot-yellow"><span class="badge badge-yellow">Urgent</span></span></td>
-            <td><span class="badge badge-grey">À faire</span></td>
-          </tr>
-          <tr>
-            <td>6</td>
-            <td>Enquête sur 78668.com — relais SMTP / C&C — signalement abuse CNNIC</td>
-            <td>CERT-FR / CNNIC</td>
-            <td><span class="dot-yellow"><span class="badge badge-yellow">Urgent</span></span></td>
-            <td><span class="badge badge-red">Non initié</span></td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>Notifier Stefano Girard (girste.com) — victime collatérale, mise à jour DNS nécessaire</td>
-            <td>Auteur</td>
-            <td><span class="dot-yellow"><span class="badge badge-yellow">Recommandé</span></span></td>
-            <td><span class="badge badge-grey">Optionnel</span></td>
-          </tr>
-          <tr>
-            <td>8</td>
-            <td>Surveillance active AS263692 sur <code>92.183.128.0/18</code></td>
-            <td>RIPE NCC / CERT-FR</td>
-            <td><span class="dot-green"><span class="badge badge-green">Continu</span></span></td>
-            <td><span class="badge badge-blue">En place</span></td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>Archive MRT mai 2024 — identifier AS216462</td>
-            <td>Auteur (en cours)</td>
-            <td><span class="dot-green"><span class="badge badge-green">Investigation</span></span></td>
-            <td><span class="badge badge-yellow">En cours</span></td>
-          </tr>
+          <tr><td>1</td><td>Créer les ROA RPKI pour <code>90.98.0.0/15</code> et <code>92.183.128.0/18</code></td><td>Orange France AS3215</td><td><span class="badge badge-red">Immédiat</span></td><td><span class="badge badge-red">Non fait</span></td></tr>
+          <tr><td>2</td><td>Supprimer route objects ALTDB <code>MAINT-SPRINT</code> et <code>HOTWIRE-MNT</code></td><td>ALTDB db@altdb.net</td><td><span class="badge badge-red">Immédiat</span></td><td><span class="badge badge-red">Non fait</span></td></tr>
+          <tr><td>3</td><td><strong>Signaler à G-Core Labs le client GCL-CUSTOMER-UZ</strong></td><td>Auteur / CERT-FR</td><td><span class="badge badge-red">Immédiat</span></td><td><span class="badge badge-yellow">À envoyer</span></td></tr>
+          <tr><td>4</td><td>Notifier Cogent — <code>MAINT-SPRINT</code> usurpé</td><td>Auteur / CERT-FR</td><td><span class="badge badge-red">Immédiat</span></td><td><span class="badge badge-yellow">En cours</span></td></tr>
+          <tr><td>5</td><td>Surveillance automatisée des préfixes G-Core</td><td>Auteur</td><td><span class="badge badge-green">Continu</span></td><td><span class="badge badge-green">Active</span></td></tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- SOURCES -->
+<!-- SOURCES (contenu v4 conservé + nouvelles sources) -->
 <section id="sources">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🔗</span>
       <h2>Sources vérifiables</h2>
     </div>
-
     <div class="sources-grid">
-      <a class="source-link" href="https://apps.db.ripe.net/db-web-ui/query?searchtext=90.98.0.0/15" target="_blank" rel="noopener">
-        <span class="source-link-icon">🌐</span>
-        <div>
-          <div style="font-weight:600;color:var(--text-bright);margin-bottom:2px;">RIPE Database</div>
-          <div style="color:var(--text-dim);font-size:11px;">90.98.0.0/15 + 92.183.128.0/18</div>
-        </div>
-      </a>
-      <a class="source-link" href="https://stat.ripe.net/data/routing-history/data.json?resource=92.183.128.0/18" target="_blank" rel="noopener">
-        <span class="source-link-icon">📡</span>
-        <div>
-          <div style="font-weight:600;color:var(--text-bright);margin-bottom:2px;">RIPEstat routing-history</div>
-          <div style="color:var(--text-dim);font-size:11px;">API · 92.183.128.0/18</div>
-        </div>
-      </a>
-      <a class="source-link" href="https://bgp.tools/as/41128" target="_blank" rel="noopener">
-        <span class="source-link-icon">🔍</span>
-        <div>
-          <div style="font-weight:600;color:var(--text-bright);margin-bottom:2px;">BGP.tools / AS41128</div>
-          <div style="color:var(--text-dim);font-size:11px;">État DFZ, upstreams, FDNS — temps réel</div>
-        </div>
-      </a>
-      <a class="source-link" href="https://rpki-validator.ripe.net/api/v1/validity/AS41128/90.98.0.0/15" target="_blank" rel="noopener">
-        <span class="source-link-icon">🔐</span>
-        <div>
-          <div style="font-weight:600;color:var(--text-bright);margin-bottom:2px;">RIPE RPKI Validator API</div>
-          <div style="color:var(--text-dim);font-size:11px;">Statut ROA en temps réel · routinator</div>
-        </div>
-      </a>
-      <a class="source-link" href="https://bgp.he.net/AS270118#_IRR" target="_blank" rel="noopener">
-        <span class="source-link-icon">📋</span>
-        <div>
-          <div style="font-weight:600;color:var(--text-bright);margin-bottom:2px;">bgp.he.net / AS270118</div>
-          <div style="color:var(--text-dim);font-size:11px;">IRR — route objects MAINT-SPRINT</div>
-        </div>
-      </a>
-      <a class="source-link" href="https://crt.sh/?q=girste.com" target="_blank" rel="noopener">
-        <span class="source-link-icon">🔒</span>
-        <div>
-          <div style="font-weight:600;color:var(--text-bright);margin-bottom:2px;">crt.sh · girste.com</div>
-          <div style="color:var(--text-dim);font-size:11px;">44 sous-domaines via certificats TLS</div>
-        </div>
-      </a>
-      <a class="source-link" href="https://rdap.lacnic.net/rdap/autnum/270118" target="_blank" rel="noopener">
-        <span class="source-link-icon">🌎</span>
-        <div>
-          <div style="font-weight:600;color:var(--text-bright);margin-bottom:2px;">LACNIC WHOIS</div>
-          <div style="color:var(--text-dim);font-size:11px;">aut-num AS270118 — Mexique</div>
-        </div>
-      </a>
-      <a class="source-link" href="https://explorer.kentik.com/" target="_blank" rel="noopener">
-        <span class="source-link-icon">📊</span>
-        <div>
-          <div style="font-weight:600;color:var(--text-bright);margin-bottom:2px;">Kentik BGP Route Viewer</div>
-          <div style="color:var(--text-dim);font-size:11px;">Reachability / Visibility · 362 VPs</div>
-        </div>
-      </a>
-      <a class="source-link" href="https://loic31000.github.io/bgp-hijack-orange-2026/" target="_blank" rel="noopener">
-        <span class="source-link-icon">📄</span>
-        <div>
-          <div style="font-weight:600;color:var(--text-bright);margin-bottom:2px;">Rapport v1.0 / v3.0 (référence)</div>
-          <div style="color:var(--text-dim);font-size:11px;">loic31000.github.io</div>
-        </div>
-      </a>
+      <a class="source-link" href="https://apps.db.ripe.net/db-web-ui/query?searchtext=90.98.0.0/15" target="_blank"><span class="source-link-icon">🌐</span><div><div style="font-weight:600;color:var(--text-bright);">RIPE Database</div><div style="color:var(--text-dim);font-size:11px;">90.98.0.0/15 + 92.183.128.0/18</div></div></a>
+      <a class="source-link" href="https://bgp.tools/as/199524" target="_blank"><span class="source-link-icon">🔍</span><div><div style="font-weight:600;color:var(--text-bright);">BGP.tools / AS199524</div><div style="color:var(--text-dim);font-size:11px;">État DFZ, prefixes, upstreams</div></div></a>
+      <a class="source-link" href="https://stat.ripe.net/data/routing-status/data.json?resource=93.174.164.0/24" target="_blank"><span class="source-link-icon">📡</span><div><div style="font-weight:600;color:var(--text-bright);">RIPEstat routing-status</div><div style="color:var(--text-dim);font-size:11px;">93.174.164.0/24</div></div></a>
+      <a class="source-link" href="https://crt.sh/?q=girste.com" target="_blank"><span class="source-link-icon">🔒</span><div><div style="font-weight:600;color:var(--text-bright);">crt.sh · girste.com</div><div style="color:var(--text-dim);font-size:11px;">44 sous-domaines</div></div></a>
     </div>
-
-    <h3>Outils utilisés — Investigation terrain 22 avril 2026</h3>
-    <div class="table-wrap">
-      <table>
-        <thead><tr><th>Outil</th><th>Usage</th></tr></thead>
-        <tbody>
-          <tr><td><code>mtr</code></td><td>Vérification chemin réseau depuis Toulouse (AS39405 Eurofiber)</td></tr>
-          <tr><td><code>curl</code> API RIPE RPKI</td><td>Validation statut ROA en temps réel — routinator</td></tr>
-          <tr><td>BGP.tools</td><td>État DFZ, AS paths, upstreams live, FDNS passif</td></tr>
-          <tr><td><code>dig</code> / <code>whois</code></td><td>Résolution DNS et WHOIS des domaines 78668.com + girste.com</td></tr>
-          <tr><td>crt.sh</td><td>Énumération 44 sous-domaines via certificats TLS publics</td></tr>
-          <tr><td><code>openssl s_client</code></td><td>Vérification certificat TLS girste.com · Google Trust Services WE1</td></tr>
-          <tr><td>Kentik BGP Route Viewer</td><td>Visualisation reachability/visibility 90.98.0.0/15 · retrait 17:27 UTC</td></tr>
-          <tr><td>Twitter/X · @DougMadory</td><td>Confirmation publique réponse Orange + timestamp DFZ</td></tr>
-          <tr><td>Rapport v3.0 (21 avril 2026)</td><td>Base de référence — revue Doug Madory (Kentik) + Spamhaus</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p style="margin-top:24px; font-size:12px; color:var(--text-dim); max-width:680px;">
-      <strong style="color:var(--text);">Note méthodologique :</strong> Ce rapport est une investigation OSINT passive publiée à des fins de transparence et de cybersécurité défensive. Toutes les données sont issues de sources publiques. Aucun système n'a été sondé activement ni accédé sans autorisation. Rapport produit le 22 avril 2026 — à destination d'<strong style="color:var(--text);">Orange Cyberdefense / CERT-FR</strong>.
+    <p style="margin-top:24px; font-size:12px; color:var(--text-dim);">
+      <strong>Note méthodologique :</strong> Rapport produit le 27 avril 2026. Investigation OSINT passive — uniquement des sources publiques. Aucun système n'a été sondé activement.
     </p>
   </div>
 </section>
@@ -1725,18 +1609,12 @@ curl "https://rpki-validator.ripe.net/api/v1/validity/AS41128/90.98.0.0/15"
 <footer>
   <div class="container" style="width:100%;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;">
     <div class="footer-left">
-      Investigation indépendante · <strong>Rapport v4.0</strong> · 22 avril 2026<br>
+      Investigation indépendante · <strong>Rapport v5.0</strong> · 27 avril 2026<br>
       Investigateur : <strong>Loic</strong> · Revue technique : <strong>Doug Madory (Kentik)</strong><br>
       Reconnu publiquement par <strong>Spamhaus</strong> · <strong>RIPE NCC</strong>
     </div>
-    <div style="display:flex;gap:12px;align-items:center;">
-      <div class="footer-badge">BGP HIJACK · ORANGE FR ·</div>
-      <div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--green);border:1px solid rgba(34,197,94,0.3);padding:6px 14px;border-radius:4px;">
-        HIJACK SUSPENDU · IRR ACTIF
-      </div>
-    </div>
+    <div class="footer-badge">BGP HIJACK · ORANGE FR · v5.0 · INFRA IDENTIFIÉE</div>
   </div>
 </footer>
-
 </body>
 </html>

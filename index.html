@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BGP Hijack — Orange France · Rapport v5.0 — Infrastructure G-Core identifiée</title>
+<title>BGP Hijack — Orange France · Rapport v6.0 — Vol d'AS gouvernemental</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -773,10 +773,10 @@
 <!-- HEADER -->
 <header>
   <div class="header-top">
-    <span class="header-badge">v5.0</span>
-    <span class="header-badge-new">INFRASTRUCTURE · 27 AVRIL 2026</span>
+    <span class="header-badge">v6.0</span>
+    <span class="header-badge-new">VOL · PARLEMENT CANADIEN · 29 AVRIL 2026</span>
     <span class="header-title">BGP Hijack — Orange France · Rapport Technique</span>
-    <span class="header-version">27 avril 2026</span>
+    <span class="header-version">29 avril 2026</span>
   </div>
   <nav>
     <a href="#resume">Résumé</a>
@@ -786,7 +786,8 @@
     <a href="#terrain">🔬 Investigation Terrain</a>
     <a href="#domaines">🌐 Domaines actifs</a>
     <a href="#asn">AS Path</a>
-    <a href="#gcore" class="new">🏢 Infra G-Core</a>
+    <a href="#gcore">🏢 Infra G-Core</a>
+    <a href="#mcisae" class="new">📡 Pool MCI/SAE</a>
     <a href="#altdb">ALTDB</a>
     <a href="#rpki">RPKI</a>
     <a href="#etat-menace">🛡 État menace</a>
@@ -798,30 +799,30 @@
 <!-- HERO -->
 <div class="hero" id="resume">
   <div class="container">
-    <div class="hero-label">Investigation indépendante · Rapport public · v5.0</div>
-    <h1>BGP Hijack visant <span>Orange France</span><br>Rapport v5.0 — Infrastructure G-Core <span>identifiée</span></h1>
+    <div class="hero-label">Investigation indépendante · Rapport public · v6.0</div>
+    <h1>BGP Hijack visant <span>Orange France</span><br>Rapport v6.0 — Vol d'AS gouvernemental <span>identifié</span></h1>
     <div class="hero-meta">
       <span>Investigateur : <strong>Loic</strong></span>
       <span>Revue technique : <strong>Doug Madory (Kentik)</strong></span>
       <span>Validé publiquement par <strong>Spamhaus</strong> · <strong>RIPE NCC</strong></span>
-      <span>Publié le <strong>27 avril 2026</strong></span>
+      <span>Publié le <strong>29 avril 2026</strong></span>
     </div>
 
-    <!-- UPDATE BANNER v5 -->
+    <!-- UPDATE BANNER v6 -->
     <div class="update-banner">
-      <div class="update-banner-icon">🏢</div>
+      <div class="update-banner-icon">🏛️</div>
       <div class="update-banner-content">
-        <div class="update-banner-title">Infrastructure malveillante identifiée — G-Core Labs / Client Ouzbek</div>
+        <div class="update-banner-title">DÉCOUVERTE MAJEURE — AS du Parlement canadien volé</div>
         <p class="update-banner-text">
-          L'enquête a permis d'identifier <strong>G-Core Labs (AS199524)</strong> comme fournisseur d'infrastructure du hijack. Le client final est <strong>GCL-CUSTOMER-UZ</strong> localisé à <strong>Tachkent, Ouzbékistan (41.27966, 69.30087)</strong>. <strong>8 blocs /24 (7 actifs)</strong> ont été cartographiés, totalisant <strong>~1792 IPs</strong>. Ces serveurs sont volontairement silencieux (aucun port ouvert). Une surveillance automatisée a été mise en place.
+          L'enquête a révélé que <strong>AS398290 (House of Commons, Canada)</strong> a été volé et est utilisé pour annoncer <strong>167.32.0.0/16</strong> (pool MCI/SAE) avec une visibilité <strong>331/331 peers (100%)</strong> depuis <strong>novembre 2023</strong>. L'infrastructure G-Core à Tachkent héberge toujours 7 blocs /24. La menace est persistante et structurée.
         </p>
       </div>
     </div>
 
-    <!-- CALLOUT EXECUTIVE SUMMARY v5 -->
+    <!-- CALLOUT EXECUTIVE SUMMARY v6 -->
     <div class="callout">
-      <div class="callout-label">Résumé exécutif · v5.0</div>
-      <p>Une opération BGP de grande envergure ciblant deux préfixes d'Orange France sur <strong>près de 2 ans</strong> (mai 2024 – avril 2026) entre en phase de suspension le 21 avril 2026. L'enquête complémentaire (27 avril 2026) identifie formellement l'infrastructure matérielle : <strong>G-Core Labs S.A. (AS199524)</strong> louant des IPs à un client basé à <strong>Tachkent, Ouzbékistan (GCL-CUSTOMER-UZ)</strong>. <strong>8 blocs /24 (dont 7 actifs)</strong> ont été cartographiés. La menace n'est pas éliminée — l'infrastructure est toujours debout et prête à réinjecter les routes frauduleuses.</p>
+      <div class="callout-label">Résumé exécutif · v6.0</div>
+      <p>Une opération BGP massive ciblant Orange France (2024-2026) n'était qu'un épisode d'une infrastructure criminelle plus vaste. Découverte du <strong>vol de l'AS398290 (Parlement canadien)</strong>, actif depuis <strong>novembre 2023</strong>, annonçant frauduleusement <strong>167.32.0.0/16</strong> avec une visibilité mondiale totale. G-Core Labs (client <strong>GCL-CUSTOMER-UZ</strong> à Tachkent) sert d'ancrage physique. La menace est <strong>toujours active</strong> et structurée.</p>
     </div>
   </div>
 </div>
@@ -986,7 +987,7 @@
   </div>
 </section>
 
-<!-- MÉTRIQUES (v4 enrichies) -->
+<!-- MÉTRIQUES (v6 enrichies) -->
 <div id="metriques" style="border-bottom: 1px solid var(--border);">
   <div class="container" style="padding-top:40px;padding-bottom:40px;">
     <div class="metrics">
@@ -994,12 +995,13 @@
         <div class="metric-label">Préfixes ciblés</div>
         <div class="metric-value orange" style="font-size:13px;margin-top:2px;">
           <code style="font-size:12px;background:none;border:none;padding:0;color:var(--orange);">90.98.0.0/15</code><br>
-          <code style="font-size:12px;background:none;border:none;padding:0;color:var(--orange);">92.183.128.0/18</code>
+          <code style="font-size:12px;background:none;border:none;padding:0;color:var(--orange);">92.183.128.0/18</code><br>
+          <code style="font-size:12px;background:none;border:none;padding:0;color:var(--orange);">167.32.0.0/16</code>
         </div>
       </div>
       <div class="metric">
         <div class="metric-label">IPs concernées</div>
-        <div class="metric-value">147 456</div>
+        <div class="metric-value">> 180 000</div>
       </div>
       <div class="metric">
         <div class="metric-label">1ère opération documentée</div>
@@ -1013,11 +1015,11 @@
       </div>
       <div class="metric">
         <div class="metric-label">Visibilité RIPE max</div>
-        <div class="metric-value red">99,7%</div>
-        <div class="metric-sub">330/331 peers · 13 avr. 2026</div>
+        <div class="metric-value red">100%</div>
+        <div class="metric-sub">331/331 peers (167.32.0.0/16)</div>
       </div>
       <div class="metric">
-        <div class="metric-label">Retrait DFZ</div>
+        <div class="metric-label">Retrait DFZ (Orange)</div>
         <div class="metric-value green" style="font-size:14px;">17:27 UTC</div>
         <div class="metric-sub">21 avril 2026 · confirmé Kentik</div>
       </div>
@@ -1033,37 +1035,51 @@
       </div>
       <div class="metric">
         <div class="metric-label">Durée totale opération</div>
-        <div class="metric-value" style="font-size:15px;">~24 mois</div>
-        <div class="metric-sub">Mai 2024 → Avril 2026</div>
+        <div class="metric-value" style="font-size:15px;">~30 mois</div>
+        <div class="metric-sub">Nov. 2023 → Avril 2026</div>
       </div>
       <div class="metric">
         <div class="metric-label">Blocs IP malveillants</div>
-        <div class="metric-value red" style="font-size:14px;">8 (/24)</div>
-        <div class="metric-sub">7 actifs · ~1792 IPs</div>
+        <div class="metric-value red" style="font-size:14px;">8 (/24) + 1 (/16)</div>
+        <div class="metric-sub">~1800 IPs (G-Core) + 65536 IPs (MCI/SAE)</div>
       </div>
       <div class="metric">
-        <div class="metric-label">Visibilité infra G-Core</div>
-        <div class="metric-value red" style="font-size:14px;">327-330 peers</div>
-        <div class="metric-sub">Quasi mondiale</div>
+        <div class="metric-label">AS gouvernemental volé</div>
+        <div class="metric-value red" style="font-size:14px;">AS398290</div>
+        <div class="metric-sub">House of Commons (Canada) — actif depuis 2023</div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- CHRONOLOGIE COMPLÈTE (v4 enrichie avec nouvelle entrée) -->
+<!-- CHRONOLOGIE COMPLÈTE (v6 enrichie) -->
 <section id="chronologie">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🕒</span>
-      <h2>Chronologie complète — v5.0 enrichie</h2>
+      <h2>Chronologie complète — v6.0 enrichie</h2>
     </div>
     <div class="timeline">
-      <!-- Toutes les entrées v4 sont conservées -->
+      <!-- Toutes les entrées v4/v5 sont conservées -->
+      <div class="tl-item">
+        <div class="tl-date">1993</div>
+        <div class="tl-title">Allocation du pool MCI/SAE</div>
+        <div class="tl-body">ARIN assigne les blocs <code>198.193.0.0/16</code>, <code>167.31.0.0/16</code>, <code>167.32.0.0/16</code> à MCI/SAE (Richardson, Texas).</div>
+        <div class="tl-source">Source · ARIN</div>
+      </div>
+
       <div class="tl-item">
         <div class="tl-date">24 JUIN 2020</div>
         <div class="tl-title">AS270118 enregistré (LACNIC)</div>
         <div class="tl-body">Enregistrement initial de Stratosphere Technology Latam, Mexico City.</div>
         <div class="tl-source">Source · LACNIC officiel</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">2020</div>
+        <div class="tl-title">Création de AS398290 (Parlement canadien)</div>
+        <div class="tl-body">Enregistrement légitime de l'AS pour la Chambre des Communes, Ottawa.</div>
+        <div class="tl-source">Source · ARIN</div>
       </div>
 
       <div class="tl-item">
@@ -1108,11 +1124,18 @@
         <div class="tl-source">Source · crt.sh + openssl s_client</div>
       </div>
 
-      <div class="tl-item">
+      <div class="tl-item highlight">
         <div class="tl-date">25 FÉV. 2026</div>
         <div class="tl-title">1ère annonce 90.98.0.0/15 via AS41128</div>
         <div class="tl-body">Première injection confirmée sur le préfixe principal. 51 jours de préparation discrète avant le pic. RPKI : UNKNOWN. IRR ALTDB seul vecteur.</div>
         <div class="tl-source">Source · Rapport v1</div>
+      </div>
+
+      <div class="tl-item highlight new-entry">
+        <div class="tl-date">30 NOVEMBRE 2023</div>
+        <div class="tl-title">Début du hijack massif 167.32.0.0/16 via AS398290 <span class="v-new">v6.0</span></div>
+        <div class="tl-body">Première annonce frauduleuse de <code>167.32.0.0/16</code> via l'AS volé du Parlement canadien. Visibilité : 331/331 peers (100%). Durée : plus de 18 mois.</div>
+        <div class="tl-source">Source · RIPE Stat</div>
       </div>
 
       <div class="tl-item highlight">
@@ -1172,9 +1195,16 @@
 
       <div class="tl-item new-entry">
         <div class="tl-date">27 AVRIL 2026</div>
-        <div class="tl-title">Rapport v5.0 — Infrastructure G-Core identifiée <span class="v-new">NOUVEAU v5.0</span></div>
+        <div class="tl-title">Rapport v5.0 — Infrastructure G-Core identifiée <span class="v-new">v5.0</span></div>
         <div class="tl-body">Identification de G-Core Labs (AS199524) comme fournisseur d'infrastructure. Client final : GCL-CUSTOMER-UZ à Tachkent, Ouzbékistan (41.27966, 69.30087). Cartographie de 8 blocs /24 (7 actifs, ~1792 IPs). Serveurs volontairement silencieux (aucun port ouvert). Surveillance automatisée mise en place.</div>
         <div class="tl-source">Source · Investigation OSINT complémentaire · Loic · 27 avril 2026</div>
+      </div>
+
+      <div class="tl-item new-entry">
+        <div class="tl-date">28-29 AVRIL 2026</div>
+        <div class="tl-title">Rapport v6.0 — Vol de l'AS du Parlement canadien <span class="v-new">NOUVEAU v6.0</span></div>
+        <div class="tl-body">Identification de <code>AS398290</code> (House of Commons, Canada) volé et utilisé pour annoncer <code>167.32.0.0/16</code> (pool MCI/SAE) avec une visibilité de 331/331 peers depuis novembre 2023. Corrélation avec les routes Spamhaus et le pool MCI/SAE. Infrastructure criminelle massive confirmée.</div>
+        <div class="tl-source">Source · Investigation OSINT · Loic · 29 avril 2026</div>
       </div>
     </div>
   </div>
@@ -1251,13 +1281,30 @@ Résultat MTR :
         <thead>
           <tr><th>Élément</th><th>Constat</th><th>Signification</th></tr></thead>
         <tbody>
-          <tr><td><code>90.98.0.0/15</code> dans le DFZ</td><td><span class="badge badge-green">Non visible</span></td><td>Hijack suspendu — route retirée</td></tr>
-          <tr><td>AS upstream de AS41128</td><td><strong>AS22541 MegaLink Bolivie</strong></td><td>Lien opérationnel confirmé live</td></tr>
-          <tr><td>AS22541 upstream</td><td><strong>AS29802 Hivelocity + AS174 Cogent</strong></td><td>Transit actuel confirmé</td></tr>
-          <tr><td>AS41128 dans peers AS22541</td><td><span class="badge badge-yellow">Lien actif</span></td><td>Réinjection possible à tout moment</td></tr>
-          <tr><td>IRR ALTDB AS270118 + AS41128</td><td><span class="badge badge-red">Toujours présents</span></td><td>Infrastructure de réinjection intacte</td></tr>
+          <tr><td><code>90.98.0.0/15</code> dans le DFZ</td><td><span class="badge badge-green">Non visible</span></td><td>Hijack suspendu — route retirée</td>
+          </tr>
+          <tr>
+            <td>AS upstream de AS41128</td>
+            <td><strong>AS22541 MegaLink Bolivie</strong></td>
+            <td>Lien opérationnel confirmé live
+          </tr>
+          <tr>
+            <td>AS22541 upstream</td>
+            <td><strong>AS29802 Hivelocity + AS174 Cogent</strong></td>
+            <td>Transit actuel confirmé</td>
+           </tr>
+          <tr>
+            <td>AS41128 dans peers AS22541</td>
+            <td><span class="badge badge-yellow">Lien actif</span></td>
+            <td>Réinjection possible à tout moment</td>
+           </tr>
+          <tr>
+            <td>IRR ALTDB AS270118 + AS41128</td>
+            <td><span class="badge badge-red">Toujours présents</span></td>
+            <td>Infrastructure de réinjection intacte</td>
+           </tr>
         </tbody>
-      </table>
+       </table>
     </div>
   </div>
 </section>
@@ -1282,20 +1329,21 @@ Résultat MTR :
       </div>
       <div class="domain-card-body">
         <div class="table-wrap" style="margin:0;">
-          <table><thead><tr><th>Champ</th><th>Valeur</th></tr></thead>
-          <tbody>
-            <tr><td>Registrar</td><td>eName Technology <strong>(Chine)</strong></td></tr>
-            <tr><td>Registrant</td><td>Province GuiZhou, <strong>Chine</strong></td></tr>
-            <tr><td>Créé</td><td>9 juillet 2011</td></tr>
-            <tr><td>Mis à jour</td><td><strong style="color:var(--red);">20 mars 2026</strong> — pendant la phase préparatoire (5j avant AS41128)</td></tr>
-            <tr><td>DNSSEC</td><td>Non signé</td></tr>
-            <tr><td>DNS MX / TXT</td><td>Aucun — pas de config email visible</td></tr>
-            <tr><td>IP actuelle</td><td><code>182.125.89.3</code></td></tr>
-            <tr><td>ASN actuel</td><td><strong>AS4837 — China Unicom Henan Province</strong></td></tr>
-            <tr><td>PTR</td><td><code>hn.kd.ny.adsl</code> — <strong style="color:var(--red);">Ligne ADSL résidentielle</strong></td></tr>
-            <tr><td>Réponse HTTP</td><td>Aucune — serveur muet</td></tr>
-          </tbody>
-        </table>
+          <table>
+            <thead><tr><th>Champ</th><th>Valeur</th></tr></thead>
+            <tbody>
+              <tr><td>Registrar</td><td>eName Technology <strong>(Chine)</strong></td></tr>
+              <tr><td>Registrant</td><td>Province GuiZhou, <strong>Chine</strong></td></tr>
+              <tr><td>Créé</td><td>9 juillet 2011</td></tr>
+              <tr><td>Mis à jour</td><td><strong style="color:var(--red);">20 mars 2026</strong> — pendant la phase préparatoire (5j avant AS41128)</td></tr>
+              <tr><td>DNSSEC</td><td>Non signé</td></tr>
+              <tr><td>DNS MX / TXT</td><td>Aucun — pas de config email visible</td></tr>
+              <tr><td>IP actuelle</td><td><code>182.125.89.3</code></td></tr>
+              <tr><td>ASN actuel</td><td><strong>AS4837 — China Unicom Henan Province</strong></td></tr>
+              <tr><td>PTR</td><td><code>hn.kd.ny.adsl</code> — <strong style="color:var(--red);">Ligne ADSL résidentielle</strong></td></tr>
+              <tr><td>Réponse HTTP</td><td>Aucune — serveur muet</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -1315,17 +1363,18 @@ Résultat MTR :
       </div>
       <div class="domain-card-body">
         <div class="table-wrap" style="margin:0;">
-          <table><thead><tr><th>Champ</th><th>Valeur</th></tr></thead>
-          <tbody>
-            <tr><td>Registrar</td><td>Hetzner Online GmbH (Allemagne)</td></tr>
-            <tr><td>Registrant</td><td><strong>Italie</strong> (données WHOIS privées via domain-contact.org)</td></tr>
-            <tr><td>Créé</td><td><strong>22 février 2024</strong> — 3 mois avant le 1er hijack (mai 2024)</td></tr>
-            <tr><td>NS</td><td>Cloudflare (<code>aldo.ns.cloudflare.com</code>, <code>dee.ns.cloudflare.com</code>)</td></tr>
-            <tr><td>Certificat TLS</td><td>Google Trust Services WE1 · émis <strong>22 mars 2026</strong></td></tr>
-            <tr><td>Façade web</td><td><strong>HTTP 200</strong> — Portfolio de <em>Stefano Girard</em>, Digital Product Builder</td></tr>
-            <tr><td>DNS actuels</td><td><strong style="color:var(--yellow);">Tous les sous-domaines → 90.99.200.241</strong> (non mis à jour)</td></tr>
-          </tbody>
-        </table>
+          <table>
+            <thead><tr><th>Champ</th><th>Valeur</th></tr></thead>
+            <tbody>
+              <tr><td>Registrar</td><td>Hetzner Online GmbH (Allemagne)</td></tr>
+              <tr><td>Registrant</td><td><strong>Italie</strong> (données WHOIS privées via domain-contact.org)</td></tr>
+              <tr><td>Créé</td><td><strong>22 février 2024</strong> — 3 mois avant le 1er hijack (mai 2024)</td></tr>
+              <tr><td>NS</td><td>Cloudflare (<code>aldo.ns.cloudflare.com</code>, <code>dee.ns.cloudflare.com</code>)</td></tr>
+              <tr><td>Certificat TLS</td><td>Google Trust Services WE1 · émis <strong>22 mars 2026</strong></td></tr>
+              <tr><td>Façade web</td><td><strong>HTTP 200</strong> — Portfolio de <em>Stefano Girard</em>, Digital Product Builder</td></tr>
+              <tr><td>DNS actuels</td><td><strong style="color:var(--yellow);">Tous les sous-domaines → 90.99.200.241</strong> (non mis à jour)</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -1368,21 +1417,25 @@ monit.girste.com      → 90.99.200.241  (monitoring processus)
           <tr><td>21 avril 2026</td><td>Hijack suspendu à 17:27 UTC</td><td>girste.com DNS toujours sur IPs Orange — aucune mise à jour</td></tr>
           <tr><td>22 avril 2026</td><td>Investigation v4.0</td><td>78668.com muet · girste.com HTTP 200 via Cloudflare CDN</td></tr>
         </tbody>
-      <tr>
+      </table>
     </div>
   </div>
 </section>
 
-<!-- AS PATH (contenu v4 conservé) -->
+<!-- AS PATH (contenu v4 conservé + v6) -->
 <section id="asn">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🗺️</span>
       <h2>Architecture AS Path — Chaîne confirmée live</h2>
     </div>
-    <p>Chaîne complète validée par BGP.tools le 22 avril 2026. L'ensemble de la structure reste opérationnelle bien que la route frauduleuse ait été retirée du DFZ.</p>
+    <p>Chaîne complète validée par BGP.tools le 22 avril 2026. L'ensemble de la structure reste opérationnelle bien que la route frauduleuse ait été retirée du DFZ. <strong>Découverte v6.0 : AS398290 (Parlement canadien) volé et actif.</strong></p>
 
     <div class="as-tree">
+      <span style="color:var(--red);">AS398290</span> <span style="color:var(--text-dim);">— House of Commons (Canada) — AS VOLÉ — actif depuis novembre 2023</span><br>
+      <span style="color:var(--text-dim);padding-left:24px;">↓ annonce frauduleuse</span><br>
+      <span style="color:var(--orange);padding-left:48px;">167.32.0.0/16</span> <span style="color:var(--text-dim);">— Pool MCI/SAE — 331/331 peers (100%)</span><br>
+      <span style="color:var(--text-dim);padding-left:24px;">— — — — — — — — — — — — — — — — — —</span><br>
       <span style="color:var(--red);">AS41128</span> <span style="color:var(--text-dim);">— Hijacker (AS inconnu, opérateur fantôme)</span><br>
       <span style="color:var(--text-dim);padding-left:24px;">↓ transit via</span><br>
       <span style="color:var(--yellow);padding-left:48px;">AS22541</span> <span style="color:var(--text-dim);">— MegaLink Bolivie — <strong style="color:var(--text);">confirmé live BGP.tools</strong></span><br>
@@ -1393,7 +1446,14 @@ monit.girste.com      → 90.99.200.241  (monitoring processus)
       <span style="color:var(--blue);padding-left:88px;">AS174</span> <span style="color:var(--text-dim);">— Cogent Communications (transit)</span><br>
       <span style="color:var(--text-dim);padding-left:24px;">— — — — — — — — — — — — — — — — — —</span><br>
       <span style="color:var(--text-dim);padding-left:24px;">[Transit antérieur — retiré 14 avril 2026]</span><br>
-      <span style="color:var(--text-dim);padding-left:48px;">AS199524</span> <span style="color:var(--text-dim);">— G-Core Labs S.A. (Chicago)</span>
+      <span style="color:var(--text-dim);padding-left:48px;">AS199524</span> <span style="color:var(--text-dim);">— G-Core Labs S.A. (Chicago)</span><br>
+      <span style="color:var(--text-dim);padding-left:24px;">↓ nouvelle infrastructure G-Core Tachkent</span><br>
+      <span style="color:var(--text-dim);padding-left:48px;">GCL-CUSTOMER-UZ (Tachkent, Ouzbékistan)</span><br>
+      <span style="color:var(--text-dim);padding-left:24px;">— — — — — — — — — — — — — — — — — —</span><br>
+      <span style="color:var(--text-dim);padding-left:24px;">[Nouveaux AS suspects (Spamhaus)]</span><br>
+      <span style="color:var(--text-dim);padding-left:48px;">AS2702 (Novx Systems, dormant 2003) — actif (4 préfixes)</span><br>
+      <span style="color:var(--text-dim);padding-left:48px;">AS7857 (Empire Communications, défunt) — actif (1 préfixe)</span><br>
+      <span style="color:var(--text-dim);padding-left:48px;">AS215828 (TMW Global Networks, Allemagne) — actif (19 préfixes)</span>
     </div>
 
     <div class="callout">
@@ -1411,7 +1471,7 @@ monit.girste.com      → 90.99.200.241  (monitoring processus)
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🏢</span>
-      <h2>Infrastructure G-Core Labs identifiée <span class="v-new">NOUVEAU v5.0</span></h2>
+      <h2>Infrastructure G-Core Labs identifiée <span class="v-new">v5.0</span></h2>
     </div>
     <p>L'enquête complémentaire du 27 avril 2026 a permis d'identifier formellement l'infrastructure matérielle utilisée par les attaquants : <strong>G-Core Labs S.A. (AS199524)</strong>, un fournisseur IaaS/CDN basé au Luxembourg, louant des IPs à un client final situé en Ouzbékistan.</p>
 
@@ -1464,30 +1524,72 @@ monit.girste.com      → 90.99.200.241  (monitoring processus)
       <div class="callout-label callout-label-red">Comportement typique d'infrastructure malveillante</div>
       <p>Ces serveurs sont volontairement silencieux : aucun service légitime n'est exposé. Ils sont uniquement configurés pour l'injection BGP (routeurs frontaux). C'est un comportement classique d'infrastructure professionnelle de hijack.</p>
     </div>
+  </div>
+</section>
 
-    <h3>5.4 — Autres clients G-Core</h3>
-    <p>Une recherche exhaustive dans WHOIS RIPE a révélé l'existence de nombreux autres tags clients chez G-Core (<code>GCL-CUSTOMER-KZ</code>, <code>GCL-CUSTOMER-AZ</code>, <code>GCL-CUSTOMER-US</code>, etc.). Seul <code>GCL-CUSTOMER-UZ</code> a été formellement lié au hijack Orange.</p>
-    <pre><code>whois -h whois.ripe.net -- "-i mnt-by GCL1-MNT" | grep -E "netname:.*CUSTOMER" | head -20
-GCL-CUSTOMER-IN
-GCL-CUSTOMER-NL
-GCL-CUSTOMER-TR
-GCL-CUSTOMER-UA
-GCL-CUSTOMER-US
-GCL-CUSTOMER-LU
-GCL-CUSTOMER-HU
-GCL-CUSTOMER-BR
-GCL-CUSTOMER-DE
-GCL-CUSTOMER-DK
-GCL-CUSTOMER-FI
-GCL-CUSTOMER-AE
-GCL-CUSTOMER-KZ
-GCL-CUSTOMER-AZ
-GCL-CUSTOMER-CH
-GCL-CUSTOMER-AM
-GCL-CUSTOMER-ES
-GCL-CUSTOMER-BE
-GCL-CUSTOMER-IL
-GCL-CUSTOMER-AU</code></pre>
+<!-- NOUVELLE SECTION : POOL MCI/SAE ET AS VOLÉ (v6) -->
+<section id="mcisae">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-icon">📡</span>
+      <h2>Pool MCI/SAE & Vol de l'AS du Parlement canadien <span class="v-new">NOUVEAU v6.0</span></h2>
+    </div>
+    <p>Le 28 avril 2026, Spamhaus a signalé de nouvelles routes suspectes dans le pool MCI/SAE. L'enquête a révélé que <strong>AS398290 (House of Commons, Canada) a été volé</strong> et est utilisé pour annoncer frauduleusement <code>167.32.0.0/16</code>.</p>
+
+    <h3>6.1 — AS398290 — House of Commons (Canada)</h3>
+    <div class="infra-card">
+      <h4>🏛️ AS398290 — PARLEMENT CANADIEN VOLÉ</h4>
+      <div class="infra-grid">
+        <div class="infra-item"><strong>ASN</strong><br><code>398290</code></div>
+        <div class="infra-item"><strong>Propriétaire légitime</strong><br><code>House of Commons (Chambre des Communes)</code></div>
+        <div class="infra-item"><strong>Localisation</strong><br><code>Ottawa, Ontario, Canada</code></div>
+        <div class="infra-item"><strong>Date d'enregistrement</strong><br><code>2020-04-14</code></div>
+        <div class="infra-item"><strong>Statut actuel</strong><br><code><span class="badge badge-red">VOLÉ — ACTIF</span></code></div>
+        <div class="infra-item"><strong>Utilisation</strong><br><code>Annonce 167.32.0.0/16 (pool MCI/SAE)</code></div>
+      </div>
+    </div>
+
+    <h3>6.2 — Préfixes MCI/SAE identifiés</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Préfixe</th><th>AS annonceur</th><th>Visibilité (peers)</th><th>Statut</th><th>Découverte</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>198.193.12.0/24</code></td><td>AS2702</td><td>0</td><td><span class="badge badge-yellow">Suspendu</span></td><td>Spamhaus / v6.0</td></tr>
+          <tr><td><code>198.195.144.0/24</code></td><td>AS2702</td><td>0</td><td><span class="badge badge-yellow">Suspendu</span></td><td>Spamhaus / v6.0</td></tr>
+          <tr><td><code>198.196.199.0/24</code></td><td>AS2702</td><td>0</td><td><span class="badge badge-yellow">Suspendu</span></td><td>Spamhaus / v6.0</td></tr>
+          <tr><td><code>167.31.32.0/20</code></td><td>AS7857</td><td>0</td><td><span class="badge badge-yellow">Suspendu</span></td><td>Spamhaus / v6.0</td></tr>
+          <tr><td><strong><code>167.32.0.0/16</code></strong></td><td><strong>AS398290 (volé)</strong></td><td><strong>331/331</strong></td><td><span class="badge badge-red">🔴 ACTIF (100%)</span></td><td><strong>Découverte v6.0</strong></td></tr>
+          <tr><td><code>167.32.0.0/21</code></td><td>AS398290</td><td>331</td><td><span class="badge badge-red">ACTIF</span></td><td>v6.0</td></tr>
+          <tr><td><code>167.32.2.0/24</code> → <code>167.32.8.0/24</code> (7 /24)</td><td>AS398290</td><td>331</td><td><span class="badge badge-red">ACTIF</span></td><td>v6.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>6.3 — Preuves ARIN WHOIS</h3>
+    <pre><code># ARIN WHOIS AS398290
+ASNumber:       398290
+ASName:         HOC
+OrgName:        House of Commons
+Address:        111 Wellington St, Ottawa, ON, Canada
+RegDate:        2020-04-14</code></pre>
+
+    <h3>6.4 — Activité BGP en temps réel</h3>
+    <pre><code>{
+  "origin": "398290",
+  "visibility": {
+    "ris_peers_seeing": 331,
+    "total_ris_peers": 331
+  },
+  "first_seen": "2023-11-30",
+  "last_seen": "2026-04-29"
+}</code></pre>
+
+    <div class="callout-red">
+      <div class="callout-label callout-label-red">AS GOUVERNEMENTAL VOLÉ — ACTIF DEPUIS NOVEMBRE 2023</div>
+      <p>L'AS du Parlement canadien est sous le contrôle d'un acteur malveillant depuis plus de 18 mois. Le préfixe <code>167.32.0.0/16</code> est détourné avec une visibilité mondiale totale (331/331 peers).</p>
+    </div>
   </div>
 </section>
 
@@ -1513,31 +1615,31 @@ GCL-CUSTOMER-AU</code></pre>
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🔐</span>
-      <h2>Validation RPKI — État au 27 avril 2026</h2>
+      <h2>Validation RPKI — État au 29 avril 2026</h2>
     </div>
     <div class="table-wrap">
       <table>
-        <thead><tr><th>Préfixe</th><th>ASN légitime</th><th>RPKI ROA</th><th>Statut</th></tr>
-        </thead>
+        <thead><tr><th>Préfixe</th><th>ASN légitime</th><th>RPKI ROA</th><th>Statut</th></tr></thead>
         <tbody>
           <tr><td><code>90.98.0.0/15</code></td><td>AS3215 Orange</td><td><span class="badge badge-red">NOT FOUND</span></td><td><span class="badge badge-red">UNKNOWN</span></td></tr>
           <tr><td><code>92.183.128.0/18</code></td><td>AS3215 Orange</td><td><span class="badge badge-red">NOT FOUND</span></td><td><span class="badge badge-red">UNKNOWN</span></td></tr>
+          <tr><td><code>167.32.0.0/16</code></td><td>AS398290 (volé)</td><td><span class="badge badge-red">NOT FOUND</span></td><td><span class="badge badge-red">UNKNOWN</span></td></tr>
         </tbody>
       </table>
     </div>
     <div class="callout-red">
       <div class="callout-label callout-label-red">Action critique</div>
-      <p>Orange France n'a toujours créé AUCUN ROA RPKI pour ses préfixes. La vulnérabilité structurelle est INTACTE.</p>
+      <p>Orange France n'a toujours créé AUCUN ROA RPKI pour ses préfixes. La vulnérabilité structurelle est INTACTE. L'AS volé n'a pas non plus de ROA protecteur.</p>
     </div>
   </div>
 </section>
 
-<!-- ÉTAT DE LA MENACE (v4 enrichi) -->
+<!-- ÉTAT DE LA MENACE (v6 enrichi) -->
 <section id="etat-menace">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">🛡</span>
-      <h2>État de la menace — 27 avril 2026 <span class="v-new">v5.0</span></h2>
+      <h2>État de la menace — 29 avril 2026 <span class="v-new">v6.0</span></h2>
     </div>
     <div class="table-wrap">
       <table>
@@ -1547,27 +1649,36 @@ GCL-CUSTOMER-AU</code></pre>
         <tbody>
           <tr><td>Hijack <code>90.98.0.0/15</code> actif</td><td><span class="badge badge-green">Suspendu — 21 avr. 17:27 UTC</span></td><td>Immédiat levé</td></tr>
           <tr><td>Hijack <code>92.183.128.0/18</code> actif</td><td><span class="badge badge-green">Suspendu</span></td><td>Immédiat levé</td></tr>
+          <tr><td><strong>Hijack <code>167.32.0.0/16</code> (MCI/SAE)</strong></td><td><span class="badge badge-red">🔴 ACTIF (331/331 peers)</span></td><td><strong>CRITIQUE — EN COURS</strong></td></tr>
+          <tr><td><strong>AS398290 (Parlement canadien)</strong></td><td><span class="badge badge-red">🔴 VOLÉ — ACTIF</span></td><td><strong>CRITIQUE — GOUVERNEMENTAL</strong></td></tr>
           <tr><td>ROA RPKI Orange France</td><td><span class="badge badge-red">TOUJOURS ABSENTS</span></td><td>Critique — réinjection invisible</td></tr>
           <tr><td>IRR ALTDB AS270118 + AS41128</td><td><span class="badge badge-red">TOUJOURS PRÉSENTS</span></td><td>Critique — vecteur de réinjection actif</td></tr>
-          <tr><td>Infrastructure G-Core</td><td><span class="badge badge-red">TOUJOURS ACTIVE (7 blocs IP)</span></td><td>Critique — prête à réinjecter</td></tr>
+          <tr><td>Infrastructure G-Core (Tachkent)</td><td><span class="badge badge-red">TOUJOURS ACTIVE (7 blocs IP)</span></td><td>Critique — prête à réinjecter</td></tr>
           <tr><td>Client GCL-CUSTOMER-UZ</td><td><span class="badge badge-red">TOUJOURS ACTIF</span></td><td>Critique — point d'ancrage identifié</td></tr>
-          <tr><td>78668.com — relais suspect</td><td><span class="badge badge-red">Non résolu</span></td><td>Haute — infrastructure attaquant potentielle</td></tr>
+          <tr><td>AS2702 / AS7857 / AS215828</td><td><span class="badge badge-red">ACTIFS</span></td><td>Élevé — infrastructure de relais</td></tr>
         </tbody>
       </table>
     </div>
     <div class="callout-yellow">
-      <div class="callout-label callout-label-yellow">Conclusion v5.0 — Menace suspendue, infrastructure malveillante intacte</div>
-      <p><strong>La menace immédiate est levée</strong> (Orange a repris le contrôle), mais <strong>l'infrastructure malveillante (G-Core / client Ouzbek) est TOUJOURS DEBOUT et ACTIVE</strong>. Les 7 blocs IP sont toujours annoncés dans le DFZ avec une visibilité quasi totale. La réinjection peut survenir à tout moment.</p>
+      <div class="callout-label callout-label-yellow">Conclusion v6.0 — Infrastructure criminelle massive identifiée</div>
+      <p><strong>Le hijack Orange a été suspendu, mais l'infrastructure criminelle est plus vaste et toujours active :</strong></p>
+      <ul style="margin-top: 10px; margin-left: 20px; list-style: disc; color: var(--text);">
+        <li>Un <strong>AS du Parlement canadien volé</strong> (AS398290) annonce <code>167.32.0.0/16</code> avec visibilité mondiale totale depuis novembre 2023</li>
+        <li>Des <strong>serveurs loués chez G-Core à Tachkent</strong> (client ouzbek) toujours actifs (7 blocs /24)</li>
+        <li>Des <strong>AS dormants réactivés</strong> (AS2702, AS7857) et un <strong>upstream allemand complaisant</strong> (AS215828)</li>
+        <li>Les <strong>routes Spamhaus</strong> dans le pool MCI/SAE confirment l'ampleur de l'opération</li>
+      </ul>
+      <p style="margin-top: 10px;"><strong>Ce n'est pas un incident isolé. C'est une infrastructure BGP malveillante structurée, professionnelle et persistante.</strong></p>
     </div>
   </div>
 </section>
 
-<!-- ACTIONS (v4 enrichie) -->
+<!-- ACTIONS (v6 enrichie) -->
 <section id="actions">
   <div class="container">
     <div class="section-header">
       <span class="section-icon">📌</span>
-      <h2>Actions recommandées — v5.0</h2>
+      <h2>Actions recommandées — v6.0</h2>
     </div>
     <div class="table-wrap">
       <table>
@@ -1575,18 +1686,55 @@ GCL-CUSTOMER-AU</code></pre>
           <tr><th>#</th><th>Action</th><th>Responsable</th><th>Urgence</th><th>Statut</th></tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td>Créer les ROA RPKI pour <code>90.98.0.0/15</code> et <code>92.183.128.0/18</code></td><td>Orange France AS3215</td><td><span class="badge badge-red">Immédiat</span></td><td><span class="badge badge-red">Non fait</span></td></tr>
-          <tr><td>2</td><td>Supprimer route objects ALTDB <code>MAINT-SPRINT</code> et <code>HOTWIRE-MNT</code></td><td>ALTDB db@altdb.net</td><td><span class="badge badge-red">Immédiat</span></td><td><span class="badge badge-red">Non fait</span></td></tr>
-          <tr><td>3</td><td><strong>Signaler à G-Core Labs le client GCL-CUSTOMER-UZ</strong></td><td>Auteur / CERT-FR</td><td><span class="badge badge-red">Immédiat</span></td><td><span class="badge badge-yellow">À envoyer</span></td></tr>
-          <tr><td>4</td><td>Notifier Cogent — <code>MAINT-SPRINT</code> usurpé</td><td>Auteur / CERT-FR</td><td><span class="badge badge-red">Immédiat</span></td><td><span class="badge badge-yellow">En cours</span></td></tr>
-          <tr><td>5</td><td>Surveillance automatisée des préfixes G-Core</td><td>Auteur</td><td><span class="badge badge-green">Continu</span></td><td><span class="badge badge-green">Active</span></td></tr>
+          <tr>
+            <td>1</td>
+            <td><strong>Alerter ARIN et le CERT Canada (CCCS)</strong> sur le vol de <code>AS398290</code> (Parlement canadien)</td>
+            <td>Loic / Spamhaus</td>
+            <td><span class="badge badge-red">IMMÉDIATE</span></td>
+            <td><span class="badge badge-yellow">À envoyer</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong>Contacter G-Core Labs</strong> pour résilier le client <code>GCL-CUSTOMER-UZ</code> (Tachkent)</td>
+            <td>Loic</td>
+            <td><span class="badge badge-red">IMMÉDIATE</span></td>
+            <td><span class="badge badge-yellow">À envoyer</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Créer les <strong>ROA RPKI</strong> pour <code>90.98.0.0/15</code>, <code>92.183.128.0/18</code> et <code>167.32.0.0/16</code></td>
+            <td>Orange France / ARIN</td>
+            <td><span class="badge badge-red">IMMÉDIATE</span></td>
+            <td><span class="badge badge-red">Non fait</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Supprimer route objects ALTDB <code>MAINT-SPRINT</code> et <code>HOTWIRE-MNT</code></td>
+            <td>ALTDB (db@altdb.net)</td>
+            <td><span class="badge badge-red">IMMÉDIATE</span></td>
+            <td><span class="badge badge-red">Non fait</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Partager les logs avec <strong>Spamhaus</strong> pour corréler <code>78668.com</code> et le pool MCI/SAE</td>
+            <td>Loic</td>
+            <td><span class="badge badge-yellow">Urgente</span></td>
+            <td><span class="badge badge-yellow">En cours</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Surveillance automatisée des préfixes suspects (script bgp_monitor.py)</td>
+            <td>Loic</td>
+            <td><span class="badge badge-green">Continue</span></td>
+            <td><span class="badge badge-green">Active (v2.4)</span></td>
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
 
-<!-- SOURCES (contenu v4 conservé + nouvelles sources) -->
+<!-- SOURCES (contenu v4 conservé + nouvelles sources v6) -->
 <section id="sources">
   <div class="container">
     <div class="section-header">
@@ -1596,11 +1744,13 @@ GCL-CUSTOMER-AU</code></pre>
     <div class="sources-grid">
       <a class="source-link" href="https://apps.db.ripe.net/db-web-ui/query?searchtext=90.98.0.0/15" target="_blank"><span class="source-link-icon">🌐</span><div><div style="font-weight:600;color:var(--text-bright);">RIPE Database</div><div style="color:var(--text-dim);font-size:11px;">90.98.0.0/15 + 92.183.128.0/18</div></div></a>
       <a class="source-link" href="https://bgp.tools/as/199524" target="_blank"><span class="source-link-icon">🔍</span><div><div style="font-weight:600;color:var(--text-bright);">BGP.tools / AS199524</div><div style="color:var(--text-dim);font-size:11px;">État DFZ, prefixes, upstreams</div></div></a>
-      <a class="source-link" href="https://stat.ripe.net/data/routing-status/data.json?resource=93.174.164.0/24" target="_blank"><span class="source-link-icon">📡</span><div><div style="font-weight:600;color:var(--text-bright);">RIPEstat routing-status</div><div style="color:var(--text-dim);font-size:11px;">93.174.164.0/24</div></div></a>
+      <a class="source-link" href="https://stat.ripe.net/data/routing-status/data.json?resource=167.32.0.0/16" target="_blank"><span class="source-link-icon">📡</span><div><div style="font-weight:600;color:var(--text-bright);">RIPEstat routing-status</div><div style="color:var(--text-dim);font-size:11px;">167.32.0.0/16 — 331/331 peers actif</div></div></a>
+      <a class="source-link" href="https://rdap.arin.net/registry/autnum/398290" target="_blank"><span class="source-link-icon">🏛️</span><div><div style="font-weight:600;color:var(--text-bright);">ARIN WHOIS / AS398290</div><div style="color:var(--text-dim);font-size:11px;">House of Commons (Canada) — AS volé</div></div></a>
       <a class="source-link" href="https://crt.sh/?q=girste.com" target="_blank"><span class="source-link-icon">🔒</span><div><div style="font-weight:600;color:var(--text-bright);">crt.sh · girste.com</div><div style="color:var(--text-dim);font-size:11px;">44 sous-domaines</div></div></a>
+      <a class="source-link" href="https://stat.ripe.net/data/routing-history/data.json?resource=198.193.0.0/16" target="_blank"><span class="source-link-icon">📡</span><div><div style="font-weight:600;color:var(--text-bright);">RIPEstat / pool MCI/SAE</div><div style="color:var(--text-dim);font-size:11px;">198.193.0.0/16 et sous-préfixes</div></div></a>
     </div>
     <p style="margin-top:24px; font-size:12px; color:var(--text-dim);">
-      <strong>Note méthodologique :</strong> Rapport produit le 27 avril 2026. Investigation OSINT passive — uniquement des sources publiques. Aucun système n'a été sondé activement.
+      <strong>Note méthodologique :</strong> Rapport produit le 29 avril 2026 (v6.0). Investigation OSINT passive — uniquement des sources publiques. Aucun système n'a été sondé activement. Découverte majeure : vol de l'AS du Parlement canadien.
     </p>
   </div>
 </section>
@@ -1609,11 +1759,11 @@ GCL-CUSTOMER-AU</code></pre>
 <footer>
   <div class="container" style="width:100%;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;">
     <div class="footer-left">
-      Investigation indépendante · <strong>Rapport v5.0</strong> · 27 avril 2026<br>
+      Investigation indépendante · <strong>Rapport v6.0</strong> · 29 avril 2026<br>
       Investigateur : <strong>Loic</strong> · Revue technique : <strong>Doug Madory (Kentik)</strong><br>
       Reconnu publiquement par <strong>Spamhaus</strong> · <strong>RIPE NCC</strong>
     </div>
-    <div class="footer-badge">BGP HIJACK · ORANGE FR · v5.0 · INFRA IDENTIFIÉE</div>
+    <div class="footer-badge">BGP HIJACK · ORANGE FR · v6.0 · AS GOUVERNEMENTAL VOLÉ</div>
   </div>
 </footer>
 </body>

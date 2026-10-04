@@ -25,9 +25,9 @@ Doug Madory a apporté une **revue technique** de l'enquête et a publié une mi
 
 La chronologie retenue dans le rapport est la suivante :
 
-- **20 avril 2026 — 15:01 UTC** : AS3215 commence à annoncer `90.98.0.0/16` et `90.99.0.0/16`, deux routes plus spécifiques que le `90.98.0.0/15` litigieux ;
+- **20 avril 2026 - 15:01 UTC** : AS3215 commence à annoncer `90.98.0.0/16` et `90.99.0.0/16`, deux routes plus spécifiques que le `90.98.0.0/15` litigieux ;
 - ces annonces plus spécifiques redonnent à Orange la préférence de routage pour cet espace ;
-- **21 avril 2026 — 17:27 UTC** : la route `90.98.0.0/15` via AS41128 est retirée du DFZ ;
+- **21 avril 2026 - 17:27 UTC** : la route `90.98.0.0/15` via AS41128 est retirée du DFZ ;
 - le rapport reproduit également la chute de visibilité observée dans **Kentik BGP Route Viewer** autour de ce retrait.
 
 ➡️ [Voir la section Doug Madory / Kentik dans le rapport](https://loic31000.github.io/bgp-hijack-orange-2026/#update-madory)
@@ -69,9 +69,9 @@ Les publications Spamhaus constituent une **corroboration indépendante du routa
 
 ## Contenu du dépôt
 
-- **[`index.html`](./index.html)** — rapport complet v6.0, chronologie, visualisations et sources ;
-- **[`Tableau_ASN_GitHub.csv`](./Tableau_ASN_GitHub.csv)** — tableau de travail des ASN, infrastructures et observations ;
-- **[`README.md`](./README.md)** — synthèse et points de corroboration externes.
+- **[`index.html`](./index.html)** - rapport complet v6.0, chronologie, visualisations et sources ;
+- **[`Tableau_ASN_GitHub.csv`](./Tableau_ASN_GitHub.csv)** - tableau de travail des ASN, infrastructures et observations ;
+- **[`README.md`](./README.md)** - synthèse et points de corroboration externes.
 
 ## Méthodologie
 

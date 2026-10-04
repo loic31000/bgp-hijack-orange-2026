@@ -4,7 +4,7 @@ Investigation technique indépendante sur des annonces BGP anormales touchant de
 
 L'enquête retrace les changements d'AS path, les pivots d'infrastructure, l'état RPKI/IRR et la réponse d'Orange. Elle a été enrichie après revue et échanges techniques avec **Doug Madory (Kentik)**, puis recoupée avec plusieurs publications publiques de **The Spamhaus Project** sur le même ensemble d'annonces suspectes.
 
-> **Rapport complet :** https://loic31000.github.io/bgp-hijack-orange-2026/
+> **Rapport complet :** -
 
 ## Résumé
 
@@ -30,7 +30,7 @@ La chronologie retenue dans le rapport est la suivante :
 - **21 avril 2026 — 17:27 UTC** : la route `90.98.0.0/15` via AS41128 est retirée du DFZ ;
 - le rapport reproduit également la chute de visibilité observée dans **Kentik BGP Route Viewer** autour de ce retrait.
 
-➡️ [Voir la section Doug Madory / Kentik dans le rapport](https://loic31000.github.io/bgp-hijack-orange-2026/#update-madory)
+➡️ [Voir la section Doug Madory / Kentik dans le rapport](-)
 
 Cette corroboration porte sur la **chronologie et le comportement de routage observé**. Elle ne doit pas être interprétée comme une validation automatique de chaque hypothèse d'attribution développée dans l'enquête.
 
@@ -82,4 +82,4 @@ Les constats sont datés et correspondent à l'état des sources au moment de l'
 ---
 
 **Auteur :** -  
-**Rapport public :** https://loic31000.github.io/bgp-hijack-orange-2026/
+**Rapport public :** -

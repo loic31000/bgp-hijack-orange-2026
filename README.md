@@ -81,5 +81,5 @@ Les constats sont datés et correspondent à l'état des sources au moment de l'
 
 ---
 
-**Auteur :** Loic LECLAIR  
+**Auteur :** -  
 **Rapport public :** https://loic31000.github.io/bgp-hijack-orange-2026/
